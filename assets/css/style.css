@@ -4,11 +4,12 @@ body{
     color: white;
 }
 
-.welcome-image{
+.welcome-image, .quiz-image{
     height: 250px;
     width: 700px;
     border: solid white 2px;
     margin: 0 auto;
+    border-radius: 5px;
 }
 
 .quiz-container{
@@ -22,4 +23,46 @@ body{
     width: 250px;
     height: 300px;
     border: solid white 2px;
+    border-radius: 5px;
 }
+
+.btn-rules{
+    font-size: 18px;
+    background: rgba(233, 30, 99, 1);
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}
+
+.btn-quiz-start{
+    font-size: 18px;
+    background: rgba(33, 150, 243, 1);
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}
+
+.answers-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.answer-btn{
+    font-size: 18px;
+    background: rgba(33, 150, 243, 1);
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 250px;
+    height: 40px;
+    margin: 5px;
+}
+
+
