@@ -11,13 +11,15 @@ setInterval( function(){
         clock.style.color = 'limegreen'
     } else if (counter >=15 && counter < 30){
         clock.innerHTML = counter;
-        clock.style.color = 'yellow';
+        clock.style.color = 'orange';
     } else if (counter >=1 && counter < 15){
         clock.innerHTML = counter;
         clock.style.color = 'red'
+        clock.classList.add('vertical-shake')
     } else if (counter === 0){
         clock.innerHTML = "Times Up";
         clock.style.color = 'white'
+        clock.classList.remove('vertical-shake')
     }
 }, 1000);
 

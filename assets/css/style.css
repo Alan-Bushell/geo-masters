@@ -109,4 +109,15 @@ a{
     padding: 4px;
 }
 
+/* vertical shaking for when counter gets below 15 seconds*/
+.vertical-shake {
+    animation: vertical-shaking 0.35s infinite;
+  }
 
+@keyframes vertical-shaking {
+    0% { transform: translateY(0) }
+    25% { transform: translateY(5px) }
+    50% { transform: translateY(-5px) }
+    75% { transform: translateY(5px) }
+    100% { transform: translateY(0) }
+  }
