@@ -2,6 +2,7 @@ let buttons = document.getElementsByTagName("button");
 
 function runGame(gameType){
     if (gameType === "whoami"){
+        alert("You have clicked who am i")
         displayWhoAmIQuestion();
     } else if (gameType === "flag"){
         displayFlagsQuestion();
