@@ -68,12 +68,13 @@ body{
 .clock-container{
     display: flex;
     justify-content: center;
+    
 }
 
 .clock{
-    border: solid 2px white;
-    width: 70px;
-    height: 70px;
+    
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -81,6 +82,8 @@ body{
     margin: 15px;
     font-size: 24px;
     font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 4px;
 }
 
 
