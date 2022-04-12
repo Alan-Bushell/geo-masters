@@ -8,7 +8,20 @@ a{
     text-decoration: none;
 }
 
-.welcome-image, .quiz-image{
+.welcome-image{
+    height: 250px;
+    width: 700px;
+    margin: 0 auto;
+    ;
+}
+
+.welcome-image > img{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px
+}
+
+.quiz-image{
     height: 250px;
     width: 700px;
     border: solid white 2px;
