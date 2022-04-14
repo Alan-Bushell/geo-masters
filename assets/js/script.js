@@ -51,6 +51,8 @@ const CORRECT_BONUS_MIN = 50;
 /* Max amount of questions user will be asked */
 const Max_Questions = 3;
 
+const questionTracker = document.getElementById("question-tracker");
+
 
 startGame = () => {
     questionCounter = 0;
@@ -67,6 +69,7 @@ function getNewQuestion(){
     }
     /*Increase score*/
     questionCounter ++;
+    questionTracker.innerText = questionCounter + " / " + Max_Questions;
 
     /* Get a random question from available questions*/
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -155,16 +158,4 @@ function countdownClock(){
 
 function calculateScore(){
 /* Calculate score will involve checking if answer === correct && time remaining to calc score*/
-};
-
-function displayWhoAmIQuestion(){
-
-};
-
-function displayFlagsQuestion(){
-
-};
-
-function displayInterestingFactQuestion(){
-
 };
