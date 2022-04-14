@@ -1,4 +1,7 @@
-let buttons = document.getElementsByTagName("button");
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+});
+
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const image = document.getElementById("quiz-image");
@@ -48,6 +51,7 @@ const CORRECT_BONUS_MIN = 50;
 /* Max amount of questions user will be asked */
 const Max_Questions = 3;
 
+
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -86,7 +90,6 @@ function getNewQuestion(){
     availableQuestions.splice(questionIndex, 1);
 
     acceptingAnswers = true;
-
 };
 
 choices.forEach(choice =>{
@@ -107,8 +110,6 @@ choices.forEach(choice =>{
     getNewQuestion();
 });
 });
-
-startGame();
 
 /* Will update score*/
 function updateScore(){
@@ -140,23 +141,8 @@ setInterval( function(){
     }
 }, 1000);
 
+startGame();
 
-
-
-function runGame(gameType){
-    if (gameType === "whoami"){
-        alert("You have clicked who am i")
-        displayWhoAmIQuestion();
-    } else if (gameType === "flag"){
-        displayFlagsQuestion();
-    }
-      else if (gameType === "interestingFact"){
-          displayInterestingFactQuestion
-      } else{
-            alert(`Unknown game type: ${gameType}`);
-            throw `Unknown game type: ${gameType}. End process`;
-        }
-};
 
 function checkAnswers(){
     /* check answer against stored correct answer */
