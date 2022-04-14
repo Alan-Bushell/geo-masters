@@ -1,6 +1,7 @@
 let buttons = document.getElementsByTagName("button");
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const image = document.getElementById("quiz-image");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -15,7 +16,8 @@ let questions = [
         choice2: "Jordon",
         choice3: "Oman",
         choice4: "Egypt",
-        answer: 2
+        answer: 2,
+        image: "<img src='assets/images/petra.jpg'>"
     },
     {
         question: "What country originally produced gunpowder?",
@@ -23,7 +25,8 @@ let questions = [
         choice2: "UK",
         choice3: "Serbia",
         choice4: "China",
-        answer: 4
+        answer: 4,
+        image: "<img src='assets/images/firework.jpg'>"
     },
     {
         question: "In which country would you find the temple of dawn?",
@@ -31,11 +34,18 @@ let questions = [
         choice2: "Indonesia",
         choice3: "Thailand",
         choice4: "Laos",
-        answer: 3
+        answer: 3,
+        image: "<img src='assets/images/templeofdawn.jpg'>"
     }
 ]
 
+/* Correct Answer with over 30 seconds left*/
 const CORRECT_BONUS = 100;
+/* Correct Answer with over 15 seconds left*/
+const CORRECT_BONUS_MED = 75;
+/*Correct Answer with less than 15 seconds left */
+const CORRECT_BONUS_MIN = 50;
+/* Max amount of questions user will be asked */
 const Max_Questions = 3;
 
 startGame = () => {
@@ -69,6 +79,9 @@ function getNewQuestion(){
         /* Set the inner html for the current questions choice*/
         choice.innerText = currentQuestion['choice' + number];
     });
+
+    image.innerHTML = currentQuestion.image;
+    image.classList.add('quiz-image>img')
 
     availableQuestions.splice(questionIndex, 1);
 
