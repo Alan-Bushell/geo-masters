@@ -1,7 +1,76 @@
 let buttons = document.getElementsByTagName("button");
 const question = document.getElementById('question');
-const choices = Array.from(document.getElementsByClassName('choices'));
+const choices = Array.from(document.getElementsByClassName('choice-text'));
 
+let currentQuestion = {};
+let acceptingAnswers = false;
+let score = 0;
+let questionCounter = 0;
+let availableQuestions = [];
+
+let questions = [
+    {
+        question: "What country is the home of Petra?",
+        choice1: "Saudi Arabia",
+        choice2: "Jordon",
+        choice3: "Oman",
+        choice4: "Egypt",
+        answer: 2
+    },
+    {
+        question: "What country originally produced gunpowder?",
+        choice1: "USA",
+        choice2: "UK",
+        choice3: "Serbia",
+        choice4: "China",
+        answer: 4
+    },
+    {
+        question: "In which country would you find the temple of dawn?",
+        choice1: "Myanmar",
+        choice2: "Indonesia",
+        choice3: "Thailand",
+        choice4: "Laos",
+        answer: 3
+    }
+]
+
+const CORRECT_BONUS = 100;
+const Max_Questions = 3;
+
+startGame = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questions];
+    getNewQuestion();
+};
+
+function getNewQuestion(){
+
+    /*Increase score*/
+    questionCounter ++;
+
+    /* Get a random question from available questions*/
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+
+    currentQuestion = availableQuestions[questionIndex];
+
+    /*Update the inner text to the Question section*/
+    question.innerText = currentQuestion.question;
+
+    /* Get the choice options available within the question and display them*/
+    choices.forEach( choice => {
+        const number = choice.dataset['number'];
+        choice.innerText = currentQuestion['choice' + number];
+    });
+
+    availableQuestions.splice(questionIndex, 1);
+
+    acceptingAnswers = true;
+
+};
+
+startGame();
 
 // Countdown Timer
 let counter = 60;
