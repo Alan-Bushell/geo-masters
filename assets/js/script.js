@@ -47,6 +47,10 @@ startGame = () => {
 
 function getNewQuestion(){
 
+    /* If the available questions has ran out or if the max question limit has been reached then redirect to endgame screen*/
+    if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
+        return window.location.assign("/endgame.html")
+    }
     /*Increase score*/
     questionCounter ++;
 
@@ -60,7 +64,9 @@ function getNewQuestion(){
 
     /* Get the choice options available within the question and display them*/
     choices.forEach( choice => {
+        /* Set number as the dataset number on the choices in the HTML*/
         const number = choice.dataset['number'];
+        /* Set the inner html for the current questions choice*/
         choice.innerText = currentQuestion['choice' + number];
     });
 
@@ -70,7 +76,32 @@ function getNewQuestion(){
 
 };
 
+choices.forEach(choice =>{
+    /* For each choice, add event listener notated as 'e'.*/
+    choice.addEventListener("click", e =>{
+        if (!acceptingAnswers) return;
+    
+    acceptingAnswers = false;
+    /* Setting the users choice as the event*/
+    const selectedChoice = e.target;
+    /* Getting the number associated with the data-number to return the choice of the user*/
+    const selectedAnswer = selectedChoice.dataset["number"];
+    console.log(selectedAnswer);
+    /* Call the getNewQuestion Function while the max questions & available questions params are still within bounds*/
+    if(selectedAnswer == currentQuestion.answer){
+        updateScore();
+    }
+    getNewQuestion();
+});
+});
+
 startGame();
+
+/* Will update score*/
+function updateScore(){
+    score += CORRECT_BONUS;
+}
+
 
 // Countdown Timer
 let counter = 60;
