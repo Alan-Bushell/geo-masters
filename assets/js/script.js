@@ -67,9 +67,12 @@ function getNewQuestion(){
     if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
         return window.location.assign("/endgame.html")
     }
-    /*Increase score*/
+    /*Increase question count*/
     questionCounter ++;
+
+    /*Display current question and remaining questions to user*/
     questionTracker.innerText = questionCounter + " / " + Max_Questions;
+    
 
     /* Get a random question from available questions*/
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
