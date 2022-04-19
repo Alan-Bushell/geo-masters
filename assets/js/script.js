@@ -69,10 +69,8 @@ function getNewQuestion(){
     }
     /*Increase question count*/
     questionCounter ++;
-
     /*Display current question and remaining questions to user*/
     questionTracker.innerText = questionCounter + " / " + Max_Questions;
-    
 
     /* Get a random question from available questions*/
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -123,20 +121,22 @@ function updateScore(){
 }
 
 
+startGame();
+
 // Countdown Timer
-let counter = 60;
+let counter = 30;
 // set interval to reduce time by 1 each second.
 setInterval( function(){
     counter--;
 // change color and add shake affect when time is running out
-    if( counter >=30){
+    if( counter >=15){
         clock = document.getElementById("clock");
         clock.innerHTML = counter;
         clock.style.color = 'limegreen'
-    } else if (counter >=15 && counter < 30){
+    } else if (counter >=5 && counter < 15){
         clock.innerHTML = counter;
         clock.style.color = 'orange';
-    } else if (counter >=1 && counter < 15){
+    } else if (counter >=1 && counter < 5){
         clock.innerHTML = counter;
         clock.style.color = 'red'
         clock.classList.add('vertical-shake')
@@ -147,7 +147,6 @@ setInterval( function(){
     }
 }, 1000);
 
-startGame();
 
 
 function checkAnswers(){
