@@ -6,6 +6,7 @@ const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const image = document.getElementById("quiz-image");
 let clock = document.getElementById('clock');
+const endModal = document.getElementById("endModal");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -79,7 +80,6 @@ function getNewQuestion(){
 
     /* Get a random question from available questions*/
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-
     currentQuestion = availableQuestions[questionIndex];
 
     /*Update the inner text to the Question section*/
@@ -160,30 +160,18 @@ function startCountdown(seconds) {
         clock.innerHTML = "Times Up";
         clock.style.color = 'white'
         clock.classList.remove('vertical-shake')
-        
       }
     }, 1000);
   }
-  
 
-
-function checkAnswers(){
-    /* check answer against stored correct answer */
-};
-
-function countdownClock(){
-/* Time remaining point ststem: 45 >= 100, 30 >= 75, 15 >= 50, 15 < 50 */
-    
-};
-
-function calculateScore(){
-/* Calculate score will involve checking if answer === correct && time remaining to calc score*/
-};
 
 startGame();
 
 
 function resetTimer(){
-    counter = 30;
-    
+    // to be worked on
+}
+
+function endGame(){
+    // When final question has been answered, push score and rank to modal!
 }
