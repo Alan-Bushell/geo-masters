@@ -5,12 +5,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const image = document.getElementById("quiz-image");
+const timeLeft = document.getElementById('clock');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+
+
 
 let questions = [
     {
@@ -59,13 +62,14 @@ startGame = () => {
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
+    startCountdown(30);
 };
 
 function getNewQuestion(){
 
     /* If the available questions has ran out or if the max question limit has been reached then redirect to endgame screen*/
     if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
-        return window.location.assign("/endgame.html")
+        return window.location.assign("/endgame.html");
     }
     /*Increase question count*/
     questionCounter ++;
@@ -90,9 +94,7 @@ function getNewQuestion(){
 
     image.innerHTML = currentQuestion.image;
     image.classList.add('quiz-image>img')
-
     availableQuestions.splice(questionIndex, 1);
-
     acceptingAnswers = true;
 };
 
@@ -107,9 +109,12 @@ choices.forEach(choice =>{
     /* Getting the number associated with the data-number to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
     console.log(selectedAnswer);
+    console.log(timeLeft)
     /* Call the getNewQuestion Function while the max questions & available questions params are still within bounds*/
     if(selectedAnswer == currentQuestion.answer){
+        console.log(clock.textContent)
         updateScore();
+        startCountdown();
     }
     getNewQuestion();
 });
@@ -121,22 +126,21 @@ function updateScore(){
 }
 
 
-startGame();
-
 // Countdown Timer
-let counter = 30;
-// set interval to reduce time by 1 each second.
-setInterval( function(){
-    counter--;
-// change color and add shake affect when time is running out
-    if( counter >=15){
+function startCountdown(seconds) {
+    let counter = seconds;
+      
+    const interval = setInterval(() => {
+      counter--;
+        
+      if( counter >=30){
         clock = document.getElementById("clock");
         clock.innerHTML = counter;
         clock.style.color = 'limegreen'
-    } else if (counter >=5 && counter < 15){
+    } else if (counter >=15 && counter < 30){
         clock.innerHTML = counter;
         clock.style.color = 'orange';
-    } else if (counter >=1 && counter < 5){
+    } else if (counter >=1 && counter < 15){
         clock.innerHTML = counter;
         clock.style.color = 'red'
         clock.classList.add('vertical-shake')
@@ -144,9 +148,11 @@ setInterval( function(){
         clock.innerHTML = "Times Up";
         clock.style.color = 'white'
         clock.classList.remove('vertical-shake')
-    }
-}, 1000);
-
+        
+      }
+    }, 1000);
+  }
+  
 
 
 function checkAnswers(){
@@ -161,3 +167,11 @@ function countdownClock(){
 function calculateScore(){
 /* Calculate score will involve checking if answer === correct && time remaining to calc score*/
 };
+
+startGame();
+
+
+function resetTimer(){
+    counter = 30;
+    
+}
