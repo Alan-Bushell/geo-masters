@@ -5,13 +5,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const image = document.getElementById("quiz-image");
-const timeLeft = document.getElementById('clock');
+let clock = document.getElementById('clock');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let timeLeft = parseInt(clock.innerText);
 
 
 
@@ -46,7 +47,7 @@ let questions = [
 ]
 
 /* Correct Answer with over 30 seconds left*/
-const CORRECT_BONUS = 100;
+const CORRECT_MAX = 100;
 /* Correct Answer with over 15 seconds left*/
 const CORRECT_BONUS_MED = 75;
 /*Correct Answer with less than 15 seconds left */
@@ -109,11 +110,13 @@ choices.forEach(choice =>{
     /* Getting the number associated with the data-number to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
     console.log(selectedAnswer);
-    console.log(timeLeft)
+    
     /* Call the getNewQuestion Function while the max questions & available questions params are still within bounds*/
     if(selectedAnswer == currentQuestion.answer){
-        console.log(clock.textContent)
-        updateScore();
+        //console.log clock
+        let timeLeft = clock.innerText;
+        console.log(timeLeft);
+        updateScore(timeLeft);
         startCountdown();
     }
     getNewQuestion();
@@ -121,8 +124,17 @@ choices.forEach(choice =>{
 });
 
 /* Will update score*/
-function updateScore(){
-    score += CORRECT_BONUS;
+function updateScore(timeLeft){
+    if(timeLeft >= 15){
+        score += CORRECT_MAX;
+    } else if(timeLeft >=5 && timeLeft <15){
+        score += CORRECT_BONUS_MED;
+    } else if(timeLeft >0 && timeLeft <5){
+        score += CORRECT_BONUS_MIN;
+    } else{
+        score += 0
+    }
+    // score += CORRECT_BONUS;
 }
 
 
@@ -133,14 +145,14 @@ function startCountdown(seconds) {
     const interval = setInterval(() => {
       counter--;
         
-      if( counter >=30){
+      if( counter >=15){
         clock = document.getElementById("clock");
         clock.innerHTML = counter;
         clock.style.color = 'limegreen'
-    } else if (counter >=15 && counter < 30){
+    } else if (counter >=5 && counter < 15){
         clock.innerHTML = counter;
         clock.style.color = 'orange';
-    } else if (counter >=1 && counter < 15){
+    } else if (counter >=1 && counter < 5){
         clock.innerHTML = counter;
         clock.style.color = 'red'
         clock.classList.add('vertical-shake')
