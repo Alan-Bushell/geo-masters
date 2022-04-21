@@ -117,9 +117,9 @@ choices.forEach(choice =>{
         let timeLeft = clock.innerText;
         console.log(timeLeft);
         updateScore(timeLeft);
-        startCountdown();
     }
     getNewQuestion();
+    resetTimer();
 });
 });
 
@@ -169,10 +169,13 @@ function startCountdown(seconds) {
 
 startGame();
 
-
+// To be worked on - clear interval seems to be way forward.
 function resetTimer(){
-    // to be worked on
-}
+    if(getNewQuestion){
+        clearInterval(counter);
+        startCountdown(30)
+    }
+};
 
 function endGame(){
     // When final question has been answered, push score and rank to modal!
