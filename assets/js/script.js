@@ -160,6 +160,8 @@ function startCountdown(seconds) {
         clock.innerHTML = "Times Up";
         clock.style.color = 'white'
         clock.classList.remove('vertical-shake')
+        getNewQuestion();
+        startCountdown(30);
       }
     }, 1000);
   }
