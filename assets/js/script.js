@@ -64,7 +64,7 @@ startGame = () => {
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
-    startCountdown(30);
+    startCountdown(31);
 };
 
 function getNewQuestion(){
@@ -123,6 +123,7 @@ choices.forEach(choice =>{
         resetTimer();
     } else{
         getNewQuestion();
+        resetTimer();
     };
   });
 });
@@ -148,7 +149,6 @@ function startCountdown(seconds) {
     
     const interval = setInterval(() => {
       counter--;
-
       if( counter >=15){
         clock = document.getElementById("clock");
         clock.innerHTML = counter;
@@ -174,7 +174,9 @@ startGame();
 
 // To be worked on - clear interval seems to be way forward.
 function resetTimer(){
-    startCountdown(30)
+    if(selectedAnswer){
+    }
+    
 };
 
 function endGame(){
