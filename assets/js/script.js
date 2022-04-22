@@ -13,6 +13,7 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let counter;
 let timeLeft = parseInt(clock.innerText);
 
 
@@ -64,7 +65,7 @@ startGame = () => {
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
-    startCountdown(31);
+    startTimer(30);
 };
 
 function getNewQuestion(){
@@ -119,11 +120,13 @@ choices.forEach(choice =>{
         let timeLeft = clock.innerText;
         console.log(timeLeft);
         updateScore(timeLeft);
+        clearInterval(counter)
         getNewQuestion();
-        resetTimer();
+        startTimer(30)
     } else{
+        clearInterval(counter)
         getNewQuestion();
-        resetTimer();
+        startTimer(30);
     };
   });
 });
@@ -143,42 +146,36 @@ function updateScore(timeLeft){
 };
 
 
-// Countdown Timer
-function startCountdown(seconds) {
-    let counter = seconds;
-    
-    const interval = setInterval(() => {
-      counter--;
-      if( counter >=15){
-        clock = document.getElementById("clock");
-        clock.innerHTML = counter;
-        clock.style.color = 'limegreen'
-    } else if (counter >=5 && counter < 15){
-        clock.innerHTML = counter;
-        clock.style.color = 'orange';
-    } else if (counter >=1 && counter < 5){
-        clock.innerHTML = counter;
-        clock.style.color = 'red'
-        clock.classList.add('vertical-shake')
-    } else if (counter === 0){
-        clock.innerHTML = "Times Up";
-        clock.style.color = 'white'
-        clock.classList.remove('vertical-shake')
-        getNewQuestion();
-        startCountdown(30);
-      }
-    }, 1000);
-  };
+//Countdown Timer Mk 2
+
+function startTimer(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        clock.textContent = time; //changing the value of clock with time content
+        time--; //decrement the time value
+        
+        if(time <= 30 && time >= 15){ 
+            clock.style.color = 'limegreen';
+        } else if(time >= 5 && time <= 15){
+            clock.style.color = 'orange';
+        } else if (time >=1 && time < 5){
+            clock.style.color = 'red';
+            clock.classList.add('vertical-shake');
+        } else if (time === -1){
+            clock.innerHTML = "Times Up";
+            clock.style.color = 'white';
+            clock.classList.remove('vertical-shake');
+            clearInterval(counter);
+            getNewQuestion();
+            startTimer(30);
+        }
+    }
+}
 
 startGame();
 
-// To be worked on - clear interval seems to be way forward.
-function resetTimer(){
-    if(selectedAnswer){
-    }
-    
-};
+
 
 function endGame(){
     // When final question has been answered, push score and rank to modal!
-}
+};
