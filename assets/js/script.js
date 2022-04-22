@@ -121,6 +121,8 @@ choices.forEach(choice =>{
         updateScore(timeLeft);
         getNewQuestion();
         resetTimer();
+    } else{
+        getNewQuestion();
     };
   });
 });
