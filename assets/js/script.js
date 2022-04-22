@@ -172,7 +172,6 @@ startGame();
 // To be worked on - clear interval seems to be way forward.
 function resetTimer(){
     if(getNewQuestion){
-        clearInterval(counter);
         startCountdown(30)
     }
 };
