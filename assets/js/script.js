@@ -71,7 +71,9 @@ function getNewQuestion(){
 
     /* If the available questions has ran out or if the max question limit has been reached then redirect to endgame screen*/
     if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
-        return window.location.assign("/endgame.html");
+        // Adding alert for now so it shows score on completion and redirects back to index.html
+        alert(`The game has finished. You scored ${score} points. Well done.`)
+        return window.location.assign("/index.html");
     }
     /*Increase question count*/
     questionCounter ++;
@@ -117,10 +119,10 @@ choices.forEach(choice =>{
         let timeLeft = clock.innerText;
         console.log(timeLeft);
         updateScore(timeLeft);
-    }
-    getNewQuestion();
-    resetTimer();
-});
+        getNewQuestion();
+        resetTimer();
+    };
+  });
 });
 
 /* Will update score*/
@@ -135,16 +137,16 @@ function updateScore(timeLeft){
         score += 0
     }
     // score += CORRECT_BONUS;
-}
+};
 
 
 // Countdown Timer
 function startCountdown(seconds) {
     let counter = seconds;
-      
+    
     const interval = setInterval(() => {
       counter--;
-        
+
       if( counter >=15){
         clock = document.getElementById("clock");
         clock.innerHTML = counter;
@@ -164,16 +166,13 @@ function startCountdown(seconds) {
         startCountdown(30);
       }
     }, 1000);
-  }
-
+  };
 
 startGame();
 
 // To be worked on - clear interval seems to be way forward.
 function resetTimer(){
-    if(getNewQuestion){
-        startCountdown(30)
-    }
+    startCountdown(30)
 };
 
 function endGame(){
