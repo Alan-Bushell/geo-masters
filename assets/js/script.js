@@ -73,7 +73,7 @@ function getNewQuestion(){
     /* If the available questions has ran out or if the max question limit has been reached then redirect to endgame screen*/
     if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
         // Adding alert for now so it shows score on completion and redirects back to index.html
-        alert(`The game has finished. You scored ${score} points. Well done.`)
+        endGame();
         return window.location.assign("/index.html");
     }
     /*Increase question count*/
@@ -178,4 +178,12 @@ startGame();
 
 function endGame(){
     // When final question has been answered, push score and rank to modal!
+    
+    if(score >=250){
+        alert(`The game has finished. You scored ${score} points. You have achieved the rank of: Chistopher Columbus.`)
+    } else if( score >= 150 && score < 250){
+        alert(`The game has finished. You scored ${score} points. You have achieved the rank of: Francis Drake.`)
+    } else {
+        alert(`It might be a good idea to brush up on your Geography. You only scored ${score} points. Unfortunately your no Christopher Columbus. Your Chris Pratt :D`)
+    }
 };
