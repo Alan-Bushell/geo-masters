@@ -151,6 +151,14 @@ a{
     padding: 4px;
 }
 
+#fullQuizMenu{
+    display: none;
+}
+
+#homePageMenu{
+    display: display;
+}
+
 
 /* vertical shaking for when counter gets below 15 seconds*/
 .vertical-shake {

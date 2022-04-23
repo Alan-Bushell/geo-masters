@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3af9543e24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Geo Master</title>
 </head>
@@ -14,23 +15,81 @@
     
     <h1>Geo Masters</h1>
 
-    <div class="welcome-image">
-        <img src="assets/images/world-map.jpg">
+
+    <!--Placing Quiz content-->
+
+    <a href="#">
+        <div class="home-button">
+            <i class="fas fa-home"></i>
+        </div>
+    </a>
+
+    <div id="fullQuizMenu">
+        <!--Question Counter Container-->
+        <div class="counter-container">
+            <div id="question-bar">
+            <div class="question-counter" id="question-tracker">1 / 3</div>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="endModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>`Congratulations!! You scored: ${score} !`<br> Play again to try and beat your score or try one of out other games.</p>
+            </div>
+        </div>
+        
+
+        <!--Image Div to input images from JS questions-->
+        <div class="quiz-image" id="quiz-image">Quiz Image window</div>
+
+        <!--Countdown clock container-->
+        <div class="clock-container">
+        <div class="clock" id="clock"> </div>      
+        </div>
+
+        <!--Question & Answers Area-->
+        <p class="question-section" id="question">Question goes here</p>
+        <div class="answers-section">
+            <button class="answer-btn choice-text" data-number="1">Option 1</button>
+            <button class="answer-btn choice-text" data-number="2">Option 2</button>
+            <button class="answer-btn choice-text" data-number="3">Option 3</button>
+            <button class="answer-btn choice-text" data-number="4">Option 3</button>
+        </div>
+
+        <h2>Press start when you are ready to begin</h2>
+
+        <!--Start Quiz button-->
+        <button class="btn-quiz-start">Start Quiz</button>
+
     </div>
 
-    <h2>Select a topic below to begin the quiz</h2>
+    <!--End of quiz Content-->
 
-    <div class="quiz-container">
-        <a href="quiz.html">
-            <div class="quiz-category" id="quiz-catagory" data-type="whereami">Quiz option 1</div>
-        </a>
-        <a href="quiz.html">
-            <div class="quiz-category" id="quiz-catagory" data-type="flags">Quiz option 2</div>
-        </a>
-        <a href="quiz.html">
-            <div class="quiz-category" id="quiz-catagory" data-type="interestingfact">Quiz option 3</div>
-        </a>
+    <!--Home page content-->
+    <div id="homePageMenu">
+        
+        <div class="welcome-image">
+            <img src="assets/images/world-map.jpg">
+        </div>
+
+        <h2>Select a topic below to begin the quiz</h2>
+
+        <div class="quiz-container">
+            <a href="quiz.html">
+                <div class="quiz-category" id="quiz-catagory" data-type="whereami">Quiz option 1</div>
+            </a>
+            <a href="quiz.html">
+                <div class="quiz-category" id="quiz-catagory" data-type="flags">Quiz option 2</div>
+            </a>
+            <a href="quiz.html">
+                <div class="quiz-category" id="quiz-catagory" data-type="interestingfact">Quiz option 3</div>
+            </a>
+        </div>
     </div>
+<!--End of home page content-->
 
     <!--Pop up modal rules content-->
     <button id="btn-rules" class="btn-rules">Rules</button>
