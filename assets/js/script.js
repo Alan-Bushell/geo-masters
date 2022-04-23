@@ -178,20 +178,14 @@ function startTimer(time){
 startGame();
 
 function hideQuiz(){
-    console.log("Calling Hide quiz");
     quiz.style.display = "none";
-    console.log("Calling hide block");
     home.style.display = "block";
-    console.log("Calling display menu");
     location.reload();
-    console.log("Calling window reload")
 }
 
 function showQuiz(){
-    console.log("Calling show quiz");
     quiz.style.display = "block";
     home.style.display = "none";
-    console.log("Hiding home menu");
 }
 
 function endGame(){

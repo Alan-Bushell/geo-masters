@@ -175,7 +175,7 @@ a{
 
   /*Rules Modal*/
 
-.modal {
+.rules-modal {
     display: none;
     position: fixed;
     z-index: 1;
