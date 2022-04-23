@@ -7,6 +7,9 @@ const choices = Array.from(document.getElementsByClassName('choice-text'));
 const image = document.getElementById("quiz-image");
 let clock = document.getElementById('clock');
 const endModal = document.getElementById("endModal");
+const homeBtn = document.getElementById('home-Btn');
+const quiz = document.getElementById("fullQuizMenu");
+const home = document.getElementById("homePageMenu")
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -174,7 +177,22 @@ function startTimer(time){
 
 startGame();
 
+function hideQuiz(){
+    console.log("Calling Hide quiz");
+    quiz.style.display = "none";
+    console.log("Calling hide block");
+    home.style.display = "block";
+    console.log("Calling display menu");
+    location.reload();
+    console.log("Calling window reload")
+}
 
+function showQuiz(){
+    console.log("Calling show quiz");
+    quiz.style.display = "block";
+    home.style.display = "none";
+    console.log("Hiding home menu");
+}
 
 function endGame(){
     // When final question has been answered, push score and rank to modal!
@@ -187,3 +205,4 @@ function endGame(){
         alert(`It might be a good idea to brush up on your Geography. You only scored ${score} points. Unfortunately your no Christopher Columbus. Your Chris Pratt :D`)
     }
 };
+
