@@ -50,13 +50,11 @@ a{
 .quiz-image{
     height: 250px;
     width: 700px;
-    border: solid white 2px;
     margin: 0 auto;
     border-radius: 5px;
 }
 
 .quiz-image > img{
-    width: inherit;
     height: 100%;
     border-radius: 10px
 }

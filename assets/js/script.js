@@ -1,16 +1,16 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+window.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM fully loaded and parsed");
 });
 
-const question = document.getElementById('question');
-const choices = Array.from(document.getElementsByClassName('choice-text'));
+const question = document.getElementById("question");
+const choices = Array.from(document.getElementsByClassName("choice-text"));
 const image = document.getElementById("quiz-image");
-let clock = document.getElementById('clock');
+let clock = document.getElementById("clock");
 const endModal = document.getElementById("endModal");
-const homeBtn = document.getElementById('home-Btn');
-const startBtn = document.getElementById('startBtn');
-const startFlagBtn = document.getElementById('startFlagBtn')
-const startMsg = document.getElementById('startMsg');
+const homeBtn = document.getElementById("home-Btn");
+const startBtn = document.getElementById("startBtn");
+const startFlagBtn = document.getElementById("startFlagBtn");
+const startMsg = document.getElementById("startMsg");
 const quiz = document.getElementById("fullQuizMenu");
 const home = document.getElementById("homePageMenu");
 const rules = document.getElementById("rulesModal");
@@ -56,7 +56,7 @@ let questions = [
         answer: 3,
         image: "<img src='assets/images/templeofdawn.jpg'>"
     }
-]
+];
 
 
 let flagQuestions = [
@@ -86,8 +86,8 @@ let flagQuestions = [
         choice4: "Panama",
         answer: 3,
         image: "<img src='assets/images/dominica.png'>"
-    },
-]
+    }
+];
 
 
 /* Correct Answer with over 30 seconds left*/
@@ -103,8 +103,8 @@ const questionTracker = document.getElementById("question-tracker");
 
 
 startGameFlag = () => {
-    startBtn.style.display = 'none';
-    startMsg.style.display = 'none';
+    startBtn.style.display = "none";
+    startMsg.style.display = "none";
     displayQuiz();
     questionCounter = 0;
     score = 0;
@@ -114,8 +114,8 @@ startGameFlag = () => {
 };
 
 startGame = () => {
-    startBtn.style.display = 'none';
-    startMsg.style.display = 'none';
+    startBtn.style.display = "none";
+    startMsg.style.display = "none";
     displayQuiz();
     questionCounter = 0;
     score = 0;
@@ -126,9 +126,11 @@ startGame = () => {
 
 function getNewQuestion(){
 
-    /* If the available questions has ran out or if the max question limit has been reached then redirect to endgame screen*/
+    /* If the available questions has ran out or if the max ,
+    question limit has been reached then redirect to endgame screen*/
     if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
-        // Adding alert for now so it shows score on completion and redirects back to index.html
+        /* Adding alert for now so it shows score on completion,
+        and redirects back to index.html*/
         endGame();
     }
     /*Increase question count*/
@@ -144,15 +146,15 @@ function getNewQuestion(){
     question.innerText = currentQuestion.question;
 
     /* Get the choice options available within the question and display them*/
-    choices.forEach( choice => {
+    choices.forEach(choice =>{
         /* Set number as the dataset number on the choices in the HTML*/
-        const number = choice.dataset['number'];
+        const number = choice.dataset["number"];
         /* Set the inner html for the current questions choice*/
-        choice.innerText = currentQuestion['choice' + number];
+        choice.innerText = currentQuestion["choice" + number];
     });
 
     image.innerHTML = currentQuestion.image;
-    image.classList.add('quiz-image>img')
+    image.classList.add("quiz-image>img")
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
@@ -161,14 +163,16 @@ choices.forEach(choice =>{
     /* For each choice, add event listener notated as 'e'.*/
     choice.addEventListener("click", e =>{
         if (!acceptingAnswers) return;
-    
+
     acceptingAnswers = false;
     /* Setting the users choice as the event*/
     const selectedChoice = e.target;
-    /* Getting the number associated with the data-number to return the choice of the user*/
+    /* Getting the number associated with the data-number,
+     to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
-    
-    /* Call the getNewQuestion Function while the max questions & available questions params are still within bounds*/
+
+    /* Call the getNewQuestion Function while the max questions,
+     & available questions params are still within bounds*/
     if(selectedAnswer == currentQuestion.answer){
         //console.log clock
         let timeLeft = clock.innerText;
@@ -176,12 +180,12 @@ choices.forEach(choice =>{
         updateScore(timeLeft);
         clearInterval(counter)
         getNewQuestion();
-        clock.classList.remove('vertical-shake');
+        clock.classList.remove("vertical-shake");
         startTimer(30)
     } else{
         clearInterval(counter)
         getNewQuestion();
-        clock.classList.remove('vertical-shake');
+        clock.classList.remove("vertical-shake");
         startTimer(30);
     };
   });
@@ -197,7 +201,7 @@ function updateScore(timeLeft){
         score += CORRECT_BONUS_MIN;
     } else{
         score += 0
-    }
+    };
     // score += CORRECT_BONUS;
 };
 
@@ -207,26 +211,25 @@ function updateScore(timeLeft){
 function startTimer(time){
     counter = setInterval(timer, 1000);
     function timer(){
-        clock.textContent = time; //changing the value of clock with time content
+        clock.textContent = time;
         time--; //decrement the time value
-        
-        if(time <= 30 && time >= 15){ 
-            clock.style.color = 'limegreen';
+        if(time <= 30 && time >= 15){
+            clock.style.color = "limegreen";
         } else if(time >= 5 && time <= 15){
-            clock.style.color = 'orange';
+            clock.style.color = "orange";
         } else if (time >=1 && time < 5){
-            clock.style.color = 'red';
-            clock.classList.add('vertical-shake');
+            clock.style.color = "red";
+            clock.classList.add("vertical-shake");
         } else if (time === -1){
             clock.innerHTML = "Times Up";
-            clock.style.color = 'white';
-            clock.classList.remove('vertical-shake');
+            clock.style.color = "white";
+            clock.classList.remove("vertical-shake");
             clearInterval(counter);
             getNewQuestion();
             startTimer(30);
-        }
-    }
-}
+        };
+    };
+};
 
 function hideQuiz(){
     quiz.style.display = "none";
@@ -250,34 +253,38 @@ function showFlagQuiz(){
 
 function displayQuiz(){
     quiz.style.display = "block";
-}
+};
 
 //Dispay Rules Modal onClick of the rules button
 function rulesModal(){
-    rules.style.display = 'block';
-    rulesContent.style.display = 'block';
+    rules.style.display = "block";
+    rulesContent.style.display = "block";
 };
 
 function closeRules(){
     rules.style.display = "none";
-}
+};
 
 window.onclick = function(event) {
     if (event.target == rules) {
       rules.style.display = "none";
     }
-  }
+  };
 
 /*
 function endGame(){
     // When final question has been answered, push score and rank to modal!
-    
     if(score >=250){
-        alert(`The game has finished. You scored ${score} points. You have achieved the rank of: Chistopher Columbus.`)
+        alert(`The game has finished. You scored ${score} points.
+        You have achieved the rank of: Chistopher Columbus.`)
     } else if( score >= 150 && score < 250){
-        alert(`The game has finished. You scored ${score} points. You have achieved the rank of: Francis Drake.`)
+        alert(`The game has finished. You scored ${score} points.
+        You have achieved the rank of: Francis Drake.`)
     } else {
-        alert(`It might be a good idea to brush up on your Geography. You only scored ${score} points. Unfortunately your no Christopher Columbus. Your Chris Pratt :D`)
+        alert(`It might be a good idea to brush up on your Geography.
+        You only scored ${score} points.
+        Unfortunately your no Christopher Columbus.
+        Your Chris Pratt :D`)
     }
 };
 */
@@ -285,6 +292,7 @@ function endGame(){
 function endGame(){
 
     finalScore.style.display = "block";
-    finalContent.innerHTML += (`<h1>Congratulations! Your final score is ${score}!. 
+    finalContent.innerHTML += (`<h1>Congratulations!
+    Your final score is ${score}!.
     <br>Play again or try one of our other games.</h1>`)
-}
+};
