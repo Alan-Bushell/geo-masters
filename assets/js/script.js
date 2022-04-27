@@ -74,9 +74,9 @@ startGame = () => {
     displayQuiz();
     questionCounter = 0;
     score = 0;
+    startTimer(30);
     availableQuestions = [...questions];
     getNewQuestion();
-    startTimer(30);
 };
 
 function getNewQuestion(){
