@@ -15,9 +15,8 @@ const quiz = document.getElementById("fullQuizMenu");
 const home = document.getElementById("homePageMenu");
 const rules = document.getElementById("rulesModal");
 const rulesContent = document.getElementById("rulesContent");
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-const finalScore = document.getElementById("finalScore");
+const finalScore = document.getElementById("finalScoreModal");
+let finalContent = document.getElementById("finalScoreContent");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -131,7 +130,6 @@ function getNewQuestion(){
     if(availableQuestions.length === 0 || questionCounter >= Max_Questions){
         // Adding alert for now so it shows score on completion and redirects back to index.html
         endGame();
-        return window.location.assign("/index.html");
     }
     /*Increase question count*/
     questionCounter ++;
@@ -169,7 +167,6 @@ choices.forEach(choice =>{
     const selectedChoice = e.target;
     /* Getting the number associated with the data-number to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
-    console.log(selectedAnswer);
     
     /* Call the getNewQuestion Function while the max questions & available questions params are still within bounds*/
     if(selectedAnswer == currentQuestion.answer){
@@ -265,14 +262,13 @@ function closeRules(){
     rules.style.display = "none";
 }
 
-
 window.onclick = function(event) {
     if (event.target == rules) {
       rules.style.display = "none";
     }
   }
 
-
+/*
 function endGame(){
     // When final question has been answered, push score and rank to modal!
     
@@ -284,4 +280,11 @@ function endGame(){
         alert(`It might be a good idea to brush up on your Geography. You only scored ${score} points. Unfortunately your no Christopher Columbus. Your Chris Pratt :D`)
     }
 };
+*/
 
+function endGame(){
+
+    finalScore.style.display = "block";
+    finalContent.innerHTML += (`<h1>Congratulations! Your final score is ${score}!. 
+    <br>Play again or try one of our other games.</h1>`)
+}

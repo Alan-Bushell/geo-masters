@@ -261,7 +261,7 @@ a{
     padding: 20px;
     border: 1px solid #888;
     width: 70%;
-    display: none;
+    display: block;
     justify-content: start;
     flex-direction: column;
     text-align: center;

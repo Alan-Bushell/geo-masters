@@ -71,14 +71,6 @@
     </div>
 
 <!--End of quiz Content-->
-    <div id="finalScoreModal" class="final-score-modal">
-        <!-- Modal content -->
-        <div class="final-score-modal-content">
-            <span class="close">&times;</span>
-            <p>`Congratulations!! You scored: ${score} !`<br> Play again to try and beat your score or try one of out other games.</p>
-        </div>
-    </div>
-
     <h2 id="startMsg">Press start when you are ready to begin</h2>
 
     <!--Start Quiz button-->
@@ -102,6 +94,13 @@
             <h3>Good Luck and Enjoy.</h3></br>
             <h3>Remember, the faster you answer the more points you get!!</h3>
             <button id="btn--close-rules" class="btn-close-rules" onclick="closeRules()">Close Rules</button>
+        </div>
+    </div>
+
+    <div id="finalScoreModal" class="final-score-modal">
+        <!-- Modal content -->
+        <div class="final-score-modal-content" id="finalScoreContent">
+            <h2>Final Score</h2>
         </div>
     </div>
 
