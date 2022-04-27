@@ -14,6 +14,8 @@ const quiz = document.getElementById("fullQuizMenu");
 const home = document.getElementById("homePageMenu");
 const rules = document.getElementById("rulesModal");
 const rulesContent = document.getElementById("rulesContent");
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
 const finalScore = document.getElementById("finalScore");
 
 let currentQuestion = {};
@@ -204,6 +206,18 @@ function rulesModal(){
     rules.style.display = 'block';
     rulesContent.style.display = 'block';
 };
+
+function closeRules(){
+    rules.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+    if (event.target == rules) {
+      rules.style.display = "none";
+    }
+  }
+
 
 function endGame(){
     // When final question has been answered, push score and rank to modal!

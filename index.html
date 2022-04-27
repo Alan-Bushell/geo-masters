@@ -84,8 +84,8 @@
 
     <h2 id="startMsg">Press start when you are ready to begin</h2>
 
-        <!--Start Quiz button-->
-        <button class="btn-quiz-start" onclick="startGame()" id="startBtn">Start Quiz</button>
+    <!--Start Quiz button-->
+    <button class="btn-quiz-start" onclick="startGame()" id="startBtn">Start Quiz</button>
     <!--Pop up modal rules content-->
     <button id="btn-rules" class="btn-rules" onclick="rulesModal()">Rules</button>
 
@@ -93,14 +93,17 @@
     <div id="rulesModal" class="rules-modal">
         <!-- Modal content -->
         <div class="rules-modal-content" id="rulesContent">
-            <span class="close">&times;</span>
             <h1>Rules of the games</h1>
-            <p>Select one the the game options on the home page.<br> When you do you will be brought to the game dashboard and ready to start your game<br>
-            The game will then start the countdown timer and present you with a question.<br>If you have selected Where Am I? Then you will be given an image and have to work out<br>
-            What famous landmark you are currently at.<br>If you selected flags then you will have to work out which flag has been presented and select the correct answer.<br>
-            If you have selected random fact then you have to work out which place the fact relates to.<br>
-            Good Luck and Enjoy.</br>
-            Remember, the faster you answer the more points you get!!</p>
+            <ul class="rules-list">
+            <li>Select one the the game options on the home page.</li>
+            <li>When you do you will be brought to the game dashboard and ready to start your game</li>
+            <li>The game will then start the countdown timer and present you with a question.</li>
+            <li>If you have selected Where Am I? Then you will be given an image and have to work out What famous landmark you are currently at.</li>
+            <li>If you selected flags then you will have to work out which flag has been presented and select the correct answer.</li>
+            <li>If you have selected random fact then you have to work out which place the fact relates to.</li></ul>
+            <h3>Good Luck and Enjoy.</h3></br>
+            <h3>Remember, the faster you answer the more points you get!!</h3>
+            <button id="btn--close-rules" class="btn-close-rules" onclick="closeRules()">Close Rules</button>
         </div>
     </div>
 
