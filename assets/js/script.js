@@ -191,6 +191,8 @@ function hideQuiz(){
 
 function showQuiz(){
     home.style.display = "none";
+    startMsg.style.display = "block";
+    startBtn.style.display = "inline"
 };
 
 function displayQuiz(){
