@@ -58,6 +58,38 @@ let questions = [
     }
 ]
 
+
+let flagQuestions = [
+    {
+        question: "What country does this flag belong to?",
+        choice1: "Bhutan",
+        choice2: "Taiwan",
+        choice3: "Indonesia",
+        choice4: "Nepal",
+        answer: 4,
+        image: "<img src='assets/images/nepal.png'>"
+    },
+    {
+        question: "What country does this flag belong to?",
+        choice1: "Angola",
+        choice2: "Mozambique",
+        choice3: "Kenya",
+        choice4: "Sierra Leonne",
+        answer: 2,
+        image: "<img src='assets/images/mozambique.png'>"
+    },
+    {
+        question: "What country does this flag belong to?",
+        choice1: "French Guyana",
+        choice2: "Haiti",
+        choice3: "Dominica",
+        choice4: "Panama",
+        answer: 3,
+        image: "<img src='assets/images/dominica.png'>"
+    },
+]
+
+
 /* Correct Answer with over 30 seconds left*/
 const CORRECT_MAX = 100;
 /* Correct Answer with over 15 seconds left*/
