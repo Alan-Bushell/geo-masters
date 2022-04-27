@@ -26,7 +26,7 @@
 
         <div class="quiz-container">
             <a href="#">
-                <div class="quiz-category" id="quiz-catagory" onclick="showQuiz()" data-type="flags">Flags</div>
+                <div class="quiz-category" id="quiz-catagory" onclick="showFlagQuiz()" data-type="flags">Flags</div>
             </a>
             <a href="#">
                 <div class="quiz-category" id="quiz-catagory" onclick="showQuiz()" data-type="interestingfact">Random Facts</div>
@@ -82,9 +82,11 @@
     <h2 id="startMsg">Press start when you are ready to begin</h2>
 
     <!--Start Quiz button-->
+    <button class="btn-quiz-start-flag" onclick="startGameFlag()" id="startFlagBtn">Start Quiz</button>
     <button class="btn-quiz-start" onclick="startGame()" id="startBtn">Start Quiz</button>
     <!--Pop up modal rules content-->
     <button id="btn-rules" class="btn-rules" onclick="rulesModal()">Rules</button>
+    
 
 <!-- Rules Modal -->
     <div id="rulesModal" class="rules-modal">

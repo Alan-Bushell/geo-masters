@@ -105,6 +105,17 @@ a{
     display: none;
 }
 
+.btn-quiz-start-flag{
+    font-size: 18px;
+    background: rgba(33, 150, 243, 1);
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    display: none;
+}
+
 #startMsg{
     display: none;
 }

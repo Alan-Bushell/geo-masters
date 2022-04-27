@@ -9,6 +9,7 @@ let clock = document.getElementById('clock');
 const endModal = document.getElementById("endModal");
 const homeBtn = document.getElementById('home-Btn');
 const startBtn = document.getElementById('startBtn');
+const startFlagBtn = document.getElementById('startFlagBtn')
 const startMsg = document.getElementById('startMsg');
 const quiz = document.getElementById("fullQuizMenu");
 const home = document.getElementById("homePageMenu");
@@ -102,6 +103,17 @@ const Max_Questions = 3;
 const questionTracker = document.getElementById("question-tracker");
 
 
+startGameFlag = () => {
+    startBtn.style.display = 'none';
+    startMsg.style.display = 'none';
+    displayQuiz();
+    questionCounter = 0;
+    score = 0;
+    startTimer(30);
+    availableQuestions = [...flagQuestions];
+    getNewQuestion();
+};
+
 startGame = () => {
     startBtn.style.display = 'none';
     startMsg.style.display = 'none';
@@ -167,10 +179,12 @@ choices.forEach(choice =>{
         updateScore(timeLeft);
         clearInterval(counter)
         getNewQuestion();
+        clock.classList.remove('vertical-shake');
         startTimer(30)
     } else{
         clearInterval(counter)
         getNewQuestion();
+        clock.classList.remove('vertical-shake');
         startTimer(30);
     };
   });
@@ -227,6 +241,14 @@ function showQuiz(){
     home.style.display = "none";
     startMsg.style.display = "block";
     startBtn.style.display = "inline"
+    startFlagBtn.style.display = "none";
+};
+
+function showFlagQuiz(){
+    home.style.display = "none";
+    startMsg.style.display = "block";
+    startBtn.style.display = "none"
+    startFlagBtn.style.display = "inline"
 };
 
 function displayQuiz(){
