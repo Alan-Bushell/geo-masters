@@ -9,7 +9,10 @@ let clock = document.getElementById('clock');
 const endModal = document.getElementById("endModal");
 const homeBtn = document.getElementById('home-Btn');
 const quiz = document.getElementById("fullQuizMenu");
-const home = document.getElementById("homePageMenu")
+const home = document.getElementById("homePageMenu");
+const rules = document.getElementById("rulesModal");
+const rulesContent = document.getElementById("rulesContent");
+const finalScore = document.getElementById("finalScore");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -175,18 +178,22 @@ function startTimer(time){
     }
 }
 
-startGame();
-
 function hideQuiz(){
     quiz.style.display = "none";
     home.style.display = "block";
     location.reload();
-}
+};
 
 function showQuiz(){
     quiz.style.display = "block";
     home.style.display = "none";
-}
+};
+
+//Dispay Rules Modal onClick of the rules button
+function rulesModal(){
+    rules.style.display = 'block';
+    rulesContent.style.display = 'block';
+};
 
 function endGame(){
     // When final question has been answered, push score and rank to modal!
