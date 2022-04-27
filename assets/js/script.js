@@ -1,7 +1,3 @@
-window.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM fully loaded and parsed");
-});
-
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const image = document.getElementById("quiz-image");
@@ -102,7 +98,7 @@ const Max_Questions = 3;
 const questionTracker = document.getElementById("question-tracker");
 
 
-startGameFlag = () => {
+function startGameFlag(){
     startBtn.style.display = "none";
     startMsg.style.display = "none";
     displayQuiz();
@@ -111,9 +107,9 @@ startGameFlag = () => {
     startTimer(30);
     availableQuestions = [...flagQuestions];
     getNewQuestion();
-};
+}
 
-startGame = () => {
+function startGame(){
     startBtn.style.display = "none";
     startMsg.style.display = "none";
     displayQuiz();
@@ -122,7 +118,7 @@ startGame = () => {
     startTimer(30);
     availableQuestions = [...questions];
     getNewQuestion();
-};
+}
 
 function getNewQuestion(){
 
@@ -146,15 +142,15 @@ function getNewQuestion(){
     question.innerText = currentQuestion.question;
 
     /* Get the choice options available within the question and display them*/
-    choices.forEach(choice =>{
+    choices.forEach((choice) =>{
         /* Set number as the dataset number on the choices in the HTML*/
-        const number = choice.dataset["number"];
+        const number = choice.dataset.number;
         /* Set the inner html for the current questions choice*/
         choice.innerText = currentQuestion["choice" + number];
     });
 
     image.innerHTML = currentQuestion.image;
-    image.classList.add("quiz-image>img")
+    image.classList.add("quiz-image>img");
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
@@ -170,6 +166,31 @@ choices.forEach(choice =>{
     /* Getting the number associated with the data-number,
      to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
+    if(currentQuestion.answer == 1){
+        finalContent.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        ${currentQuestion.question}
+        ${currentQuestion.image}
+        | <em>Correct Answer:</em> ${currentQuestion.choice1}
+        | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
+    } else if(currentQuestion.answer == 2){
+        finalContent.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        ${currentQuestion.question}
+        ${currentQuestion.image}
+        | <em>Correct Answer:</em> ${currentQuestion.choice2}
+        | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
+    } else if(currentQuestion.answer == 3){
+        finalContent.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        ${currentQuestion.question}
+        ${currentQuestion.image}
+        | <em>Correct Answer:</em> ${currentQuestion.choice3}
+        | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
+    } else {
+        finalContent.innerHTML += `<p  class="final-score-answers"><em>Question:</em>
+        ${currentQuestion.question}
+        ${currentQuestion.image}
+        | <em>Correct Answer:</em> ${currentQuestion.choice4}
+        | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
+    }
 
     /* Call the getNewQuestion Function while the max questions,
      & available questions params are still within bounds*/
@@ -288,11 +309,10 @@ function endGame(){
     }
 };
 */
-
 function endGame(){
 
     finalScore.style.display = "block";
     finalContent.innerHTML += (`<h1>Congratulations!
-    Your final score is ${score}!.
+    Your final score is ${score}!
     <br>Play again or try one of our other games.</h1>`)
 };

@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Geography Quiz Game">
+    <meta name="keywords" content="Geography, Quiz, Game, Flag">
+    <meta name="author" content="Alan Bushell">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/3af9543e24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -19,14 +22,14 @@
     <div id="homePageMenu">
         
         <div class="welcome-image">
-            <img src="assets/images/world-map.jpg">
+            <img src="assets/images/world-map.jpg" alt="Picture of an old fashioned world map in sepia colors">
         </div>
 
         <h2>Select a topic below to begin the quiz</h2>
 
         <div class="quiz-container">
             <a href="#">
-                <div class="quiz-category" id="quiz-catagory" onclick="showFlagQuiz()" data-type="flags">Flags</div>
+                <div class="quiz-category" id="quiz-flag-catagory" onclick="showFlagQuiz()" data-type="flags">Flags</div>
             </a>
             <a href="#">
                 <div class="quiz-category" id="quiz-catagory" onclick="showQuiz()" data-type="interestingfact">Random Facts</div>
@@ -39,10 +42,9 @@
 
     <div id="fullQuizMenu">
         <a href="#"></a>
-            <div class="home-button" id="homeBtn">
-                <i class="fas fa-home" onclick="hideQuiz()"></i>
-            </div>
-        </a>
+        <div class="home-button" id="homeBtn">
+            <i class="fas fa-home" onclick="hideQuiz()"></i>
+        </div>
 
         <!--Question Counter Container-->
         <div class="counter-container">
@@ -91,7 +93,7 @@
             <li>The game will then start the countdown timer and present you with a question.</li>
             <li>If you selected flags then you will have to work out which flag has been presented and select the correct answer.</li>
             <li>If you have selected random fact then you have to work out which place the fact relates to.</li></ul>
-            <h3>Good Luck and Enjoy.</h3></br>
+            <h3>Good Luck and Enjoy.</h3>
             <h3>Remember, the faster you answer the more points you get!!</h3>
             <button id="btn--close-rules" class="btn-close-rules" onclick="closeRules()">Close Rules</button>
         </div>
@@ -99,8 +101,9 @@
 
     <div id="finalScoreModal" class="final-score-modal">
         <!-- Modal content -->
-        <div class="final-score-modal-content" id="finalScoreContent">
-            <h2>Final Score</h2>
+        <div class="final-score-modal-content">
+            <h2 class="final-score">Final Score</h2>
+            <div id="finalScoreContent"></div>
         </div>
     </div>
 
