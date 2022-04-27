@@ -13,6 +13,7 @@ const rules = document.getElementById("rulesModal");
 const rulesContent = document.getElementById("rulesContent");
 const finalScore = document.getElementById("finalScoreModal");
 let finalContent = document.getElementById("finalScoreContent");
+let finalAnswers = document.getElementById("finalAnswers");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -167,25 +168,25 @@ choices.forEach(choice =>{
      to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
     if(currentQuestion.answer == 1){
-        finalContent.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}
         ${currentQuestion.image}
         | <em>Correct Answer:</em> ${currentQuestion.choice1}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else if(currentQuestion.answer == 2){
-        finalContent.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}
         ${currentQuestion.image}
         | <em>Correct Answer:</em> ${currentQuestion.choice2}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else if(currentQuestion.answer == 3){
-        finalContent.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}
         ${currentQuestion.image}
         | <em>Correct Answer:</em> ${currentQuestion.choice3}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else {
-        finalContent.innerHTML += `<p  class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML += `<p  class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}
         ${currentQuestion.image}
         | <em>Correct Answer:</em> ${currentQuestion.choice4}
@@ -286,6 +287,11 @@ function closeRules(){
     rules.style.display = "none";
 };
 
+function closeEndgame(){
+    finalScore.style.display = "none";
+    return window.location.assign("/index.html")
+}
+
 window.onclick = function(event) {
     if (event.target == rules) {
       rules.style.display = "none";
@@ -312,7 +318,21 @@ function endGame(){
 function endGame(){
 
     finalScore.style.display = "block";
-    finalContent.innerHTML += (`<h1>Congratulations!
+    if(score >= 250){
+        finalContent.innerHTML += (`<h2>Congratulations!
     Your final score is ${score}!
-    <br>Play again or try one of our other games.</h1>`)
+    <br>Your rank is: Christopher Columbus.
+    <br>Play again or try one of our other games.</h2>`)
+    } else if(score >=150 && score < 250){
+        finalContent.innerHTML += (`<h2>Well Done!
+    Your final score is ${score}!
+    <br>Your Rank is: Francis Drake. You get around but just not enough :D
+    <br>Play again or try our other game.</h2>`)
+    } else{
+        finalContent.innerHTML += (`<h2>Unlucky<br> ;(
+    Your final score is ${score}!
+    <br>Your Rank is: Domestic Traveller. You get around but just not enough :D
+    <br>Play again or try our other game.</h2>`)
+    }
+    
 };

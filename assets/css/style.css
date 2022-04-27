@@ -233,7 +233,6 @@ a{
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
-    height: 60%;
   }
 
   .rules-list{
@@ -271,6 +270,10 @@ a{
     height: 60%;
   }
 
+  #finalAnswers{
+      margin: 50px;
+      font-size: 18px;
+  }
  
   
   /* The Close Button */
