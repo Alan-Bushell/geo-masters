@@ -8,6 +8,8 @@ const image = document.getElementById("quiz-image");
 let clock = document.getElementById('clock');
 const endModal = document.getElementById("endModal");
 const homeBtn = document.getElementById('home-Btn');
+const startBtn = document.getElementById('startBtn');
+const startMsg = document.getElementById('startMsg');
 const quiz = document.getElementById("fullQuizMenu");
 const home = document.getElementById("homePageMenu");
 const rules = document.getElementById("rulesModal");
@@ -67,6 +69,9 @@ const questionTracker = document.getElementById("question-tracker");
 
 
 startGame = () => {
+    startBtn.style.display = 'none';
+    startMsg.style.display = 'none';
+    displayQuiz();
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
@@ -185,9 +190,12 @@ function hideQuiz(){
 };
 
 function showQuiz(){
-    quiz.style.display = "block";
     home.style.display = "none";
 };
+
+function displayQuiz(){
+    quiz.style.display = "block";
+}
 
 //Dispay Rules Modal onClick of the rules button
 function rulesModal(){

@@ -92,6 +92,10 @@ a{
     height: 40px;
 }
 
+.question-section{
+    font-size: 24px;
+}
+
 .answers-section{
     display: flex;
     flex-direction: column;
