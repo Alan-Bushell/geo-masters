@@ -100,7 +100,7 @@ const questionTracker = document.getElementById("question-tracker");
 
 
 function startGameFlag(){
-    startBtn.style.display = "none";
+    startFlagBtn.style.display = "none";
     startMsg.style.display = "none";
     displayQuiz();
     questionCounter = 0;
