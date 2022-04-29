@@ -262,14 +262,16 @@ function hideQuiz(){
 function showQuiz(){
     home.style.display = "none";
     startMsg.style.display = "block";
-    startBtn.style.display = "inline"
+    startMsg.style.marginTop ="300px";
+    startBtn.style.display = "inline";
     startFlagBtn.style.display = "none";
 };
 
 function showFlagQuiz(){
     home.style.display = "none";
     startMsg.style.display = "block";
-    startBtn.style.display = "none"
+    startMsg.style.marginTop ="300px";
+    startBtn.style.display = "none";
     startFlagBtn.style.display = "inline"
 };
 
@@ -319,20 +321,20 @@ function endGame(){
 
     finalScore.style.display = "block";
     if(score >= 250){
-        finalContent.innerHTML += (`<h2>Congratulations!
+        finalContent.innerHTML += (`<h3 class="end-rank">Congratulations!
     Your final score is ${score}!
     <br>Your rank is: Christopher Columbus.
-    <br>Play again or try one of our other games.</h2>`)
+    <br>Play again or try one of our other games.</h3>`)
     } else if(score >=150 && score < 250){
-        finalContent.innerHTML += (`<h2>Well Done!
+        finalContent.innerHTML += (`<h3 class="end-rank">Well Done!
     Your final score is ${score}!
     <br>Your Rank is: Francis Drake. You get around but just not enough :D
-    <br>Play again or try our other game.</h2>`)
+    <br>Play again or try our other game.</h3>`)
     } else{
-        finalContent.innerHTML += (`<h2>Unlucky<br> ;(
+        finalContent.innerHTML += (`<h3 class="end-rank">Unlucky<br>
     Your final score is ${score}!
     <br>Your Rank is: Domestic Traveller. You get around but just not enough :D
-    <br>Play again or try our other game.</h2>`)
+    <br>Play again or try our other game.</h3>`)
     }
     
 };
