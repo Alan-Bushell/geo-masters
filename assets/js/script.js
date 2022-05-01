@@ -27,13 +27,14 @@ let timeLeft = parseInt(clock.innerText);
 
 let questions = [
     {
-        question: "What country is the home of Petra?",
+        
+        answer: 2,
         choice1: "Saudi Arabia",
         choice2: "Jordon",
         choice3: "Oman",
         choice4: "Egypt",
-        answer: 2,
-        image: "<img src='assets/images/petra.jpg'>"
+        image: "<img src='assets/images/petra.jpg'>",
+        question: "What country is the home of Petra?"
     },
     {
         question: "What country originally produced gunpowder?",
@@ -130,7 +131,7 @@ function getNewQuestion(){
         and redirects back to index.html*/
         endGame();
     }
-    /*Increase question count*/
+
     questionCounter ++;
     /*Display current question and remaining questions to user*/
     questionTracker.innerText = questionCounter + " / " + Max_Questions;
@@ -198,7 +199,6 @@ choices.forEach(choice =>{
     if(selectedAnswer == currentQuestion.answer){
         //console.log clock
         let timeLeft = clock.innerText;
-        console.log(timeLeft);
         updateScore(timeLeft);
         clearInterval(counter)
         getNewQuestion();
@@ -228,8 +228,10 @@ function updateScore(timeLeft){
 };
 
 
-//Countdown Timer Mk 2
-
+/**
+ * Start Countdown Timer
+ * @param {int} time 
+ */
 function startTimer(time){
     counter = setInterval(timer, 1000);
     function timer(){
