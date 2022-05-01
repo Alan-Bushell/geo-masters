@@ -6,7 +6,7 @@
 
 
 
-## **[Live site](https://alan-bushell.github.io)**
+## **[Live site](https://alan-bushell.github.io/geo-masters/)**
 
 ------------------------------------------------------------------
 
