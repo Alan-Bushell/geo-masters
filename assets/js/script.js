@@ -291,7 +291,7 @@ function closeRules(){
 
 function closeEndgame(){
     finalScore.style.display = "none";
-    return window.location.assign("https://alan-bushell.github.io/geo-masters/#")
+    return window.location.reload();
 }
 
 window.onclick = function(event) {
