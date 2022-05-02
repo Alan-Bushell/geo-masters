@@ -158,6 +158,7 @@ function getNewQuestion(){
         and redirects back to index.html*/
         endGame();
         quiz.style.display = "none";
+        clearInterval(counter);
     }
 
     questionCounter ++;
