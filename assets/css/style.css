@@ -269,7 +269,6 @@ a{
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
-    height: 60%;
   }
 
   #finalAnswers{
@@ -300,7 +299,7 @@ a{
     
     .welcome-image{
         max-width: 100%;
-    };
+    }
 
     .welcome-image > img {
         max-width: 100%;
@@ -393,12 +392,12 @@ a{
 @media only screen and (max-width: 750px) and (min-width: 600px)  {
     .welcome-image{
         max-width: 100%;
-    };
+    }
 
     .welcome-image > img {
         max-width: 100%;
         border-radius: 10px;
-    };
+    }
 
     .rules-modal-content{
         height:auto;
@@ -408,14 +407,14 @@ a{
         width: 100%;
         padding: 0 0 10px 0;
         margin: 15px 0 0 0;
-      };
+      }
     
       .final-score{
           margin: 5px;
           font-size: 18px;
           text-decoration: underline;
           font-size: 22px;
-      };
+      }
 
       .quiz-image {
         height: 250px;

@@ -170,27 +170,27 @@ choices.forEach(choice =>{
     const selectedAnswer = selectedChoice.dataset["number"];
     if(currentQuestion.answer == 1){
         finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
-        ${currentQuestion.question}
-        ${currentQuestion.image}
-        | <em>Correct Answer:</em> ${currentQuestion.choice1}
+        ${currentQuestion.question}<br>
+        ${currentQuestion.image}<br>
+        <em>Correct Answer:</em> ${currentQuestion.choice1}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else if(currentQuestion.answer == 2){
         finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
-        ${currentQuestion.question}
-        ${currentQuestion.image}
-        | <em>Correct Answer:</em> ${currentQuestion.choice2}
+        ${currentQuestion.question}<br>
+        ${currentQuestion.image}<br>
+        <em>Correct Answer:</em> ${currentQuestion.choice2}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else if(currentQuestion.answer == 3){
         finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
-        ${currentQuestion.question}
-        ${currentQuestion.image}
-        | <em>Correct Answer:</em> ${currentQuestion.choice3}
+        ${currentQuestion.question}<br>
+        ${currentQuestion.image}<br>
+        <em>Correct Answer:</em> ${currentQuestion.choice3}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else {
         finalAnswers.innerHTML += `<p  class="final-score-answers"><em>Question:</em>
-        ${currentQuestion.question}
-        ${currentQuestion.image}
-        | <em>Correct Answer:</em> ${currentQuestion.choice4}
+        ${currentQuestion.question}<br>
+        ${currentQuestion.image}<br>
+        <em>Correct Answer:</em> ${currentQuestion.choice4}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     }
 
