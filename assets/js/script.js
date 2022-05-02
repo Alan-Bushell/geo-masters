@@ -27,7 +27,6 @@ let timeLeft = parseInt(clock.innerText);
 
 let questions = [
     {
-        
         answer: 2,
         choice1: "Saudi Arabia",
         choice2: "Jordon",
@@ -37,80 +36,80 @@ let questions = [
         question: "What country is the home of Petra?"
     },
     {
-        question: "What country originally produced gunpowder?",
+        answer: 4,
         choice1: "USA",
         choice2: "UK",
         choice3: "Serbia",
         choice4: "China",
-        answer: 4,
-        image: "<img src='assets/images/firework.jpg'>"
+        image: "<img src='assets/images/firework.jpg'>",
+        question: "What country originally produced gunpowder?"
     },
     {
-        question: "What country in the world is home to the most pyramids?",
+        answer: 3,
         choice1: "Egypt",
         choice2: "Mexico",
         choice3: "Sudan",
         choice4: "Morroco",
-        answer: 3,
-        image: "<img src='assets/images/pyramids.jpg'>"
+        image: "<img src='assets/images/pyramids.jpg'>",
+        question: "What country in the world is home to the most pyramids?"
     },
     {
-        question: "In which country would you find the temple of dawn?",
+        answer: 3,
         choice1: "Myanmar",
         choice2: "Indonesia",
         choice3: "Thailand",
         choice4: "Laos",
-        answer: 3,
-        image: "<img src='assets/images/templeofdawn.jpg'>"
+        image: "<img src='assets/images/templeofdawn.jpg'>",
+        question: "In which country would you find the temple of dawn?"
     }
 ];
 
 
 let flagQuestions = [
     {
-        question: "What country does this flag belong to?",
+        answer: 4,
         choice1: "Bhutan",
         choice2: "Taiwan",
         choice3: "Indonesia",
         choice4: "Nepal",
-        answer: 4,
-        image: "<img src='assets/images/nepal.png'>"
+        image: "<img src='assets/images/nepal.png'>",
+        question: "What country does this flag belong to?"
     },
     {
-        question: "What country does this flag belong to?",
+        answer: 2,
         choice1: "Angola",
         choice2: "Mozambique",
         choice3: "Kenya",
         choice4: "Sierra Leonne",
-        answer: 2,
-        image: "<img src='assets/images/mozambique.png'>"
+        image: "<img src='assets/images/mozambique.png'>",
+        question: "What country does this flag belong to?"
     },
     {
-        question: "What country does this flag belong to?",
+        answer: 1,
         choice1: "Bhutan",
         choice2: "Singapore",
         choice3: "Hong Kong",
         choice4: "Taiwan",
-        answer: 1,
-        image: "<img src='assets/images/bhutan.png'>"
+        image: "<img src='assets/images/bhutan.png'>",
+        question: "What country does this flag belong to?"
     },
     {
-        question: "Which country or region does this flag belong to?",
+        answer: 4,
         choice1: "Iraq",
         choice2: "Iran",
         choice3: "Turkmenistan",
         choice4: "Kurdistan",
-        answer: 4,
-        image: "<img src='assets/images/kurdistan.png'>"
+        image: "<img src='assets/images/kurdistan.png'>",
+        question: "Which country or region does this flag belong to?"
     },
     {
-        question: "What country does this flag belong to?",
+        answer: 3,
         choice1: "French Guyana",
         choice2: "Haiti",
         choice3: "Dominica",
         choice4: "Panama",
-        answer: 3,
-        image: "<img src='assets/images/dominica.png'>"
+        image: "<img src='assets/images/dominica.png'>",
+        question: "What country does this flag belong to?"
     }
 ];
 
@@ -184,7 +183,7 @@ function getNewQuestion(){
     image.classList.add("quiz-image>img");
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
-};
+}
 
 choices.forEach(choice =>{
     /* For each choice, add event listener notated as 'e'.*/
@@ -198,25 +197,29 @@ choices.forEach(choice =>{
      to return the choice of the user*/
     const selectedAnswer = selectedChoice.dataset["number"];
     if(currentQuestion.answer == 1){
-        finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML +=
+        `<p class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}<br>
         ${currentQuestion.image}<br>
         <em>Correct Answer:</em> ${currentQuestion.choice1}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else if(currentQuestion.answer == 2){
-        finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML +=
+        `<p class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}<br>
         ${currentQuestion.image}<br>
         <em>Correct Answer:</em> ${currentQuestion.choice2}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else if(currentQuestion.answer == 3){
-        finalAnswers.innerHTML += `<p class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML +=
+        `<p class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}<br>
         ${currentQuestion.image}<br>
         <em>Correct Answer:</em> ${currentQuestion.choice3}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
     } else {
-        finalAnswers.innerHTML += `<p  class="final-score-answers"><em>Question:</em>
+        finalAnswers.innerHTML +=
+        `<p  class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}<br>
         ${currentQuestion.image}<br>
         <em>Correct Answer:</em> ${currentQuestion.choice4}
@@ -259,7 +262,7 @@ function updateScore(timeLeft){
 
 /**
  * Start Countdown Timer
- * @param {int} time 
+ * @param {int} time
  */
 function startTimer(time){
     counter = setInterval(timer, 1000);
@@ -368,5 +371,4 @@ function endGame(){
     <br>Play again or try our other game.</h3>`)
     }
     clearInterval(counter);
-    
 };
