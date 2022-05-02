@@ -367,5 +367,6 @@ function endGame(){
     <br>Your Rank is: Domestic Traveller. You get around but just not enough :D
     <br>Play again or try our other game.</h3>`)
     }
+    clearInterval(counter);
     
 };
