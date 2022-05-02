@@ -46,6 +46,15 @@ let questions = [
         image: "<img src='assets/images/firework.jpg'>"
     },
     {
+        question: "What country in the world is home to the most pyramids?",
+        choice1: "Egypt",
+        choice2: "Mexico",
+        choice3: "Sudan",
+        choice4: "Morroco",
+        answer: 3,
+        image: "<img src='assets/images/pyramids.jpg'>"
+    },
+    {
         question: "In which country would you find the temple of dawn?",
         choice1: "Myanmar",
         choice2: "Indonesia",
@@ -75,6 +84,24 @@ let flagQuestions = [
         choice4: "Sierra Leonne",
         answer: 2,
         image: "<img src='assets/images/mozambique.png'>"
+    },
+    {
+        question: "What country does this flag belong to?",
+        choice1: "Bhutan",
+        choice2: "Singapore",
+        choice3: "Hong Kong",
+        choice4: "Taiwan",
+        answer: 1,
+        image: "<img src='assets/images/bhutan.png'>"
+    },
+    {
+        question: "Which country or region does this flag belong to?",
+        choice1: "Iraq",
+        choice2: "Iran",
+        choice3: "Turkmenistan",
+        choice4: "Kurdistan",
+        answer: 4,
+        image: "<img src='assets/images/kurdistan.png'>"
     },
     {
         question: "What country does this flag belong to?",
@@ -130,6 +157,7 @@ function getNewQuestion(){
         /* Adding alert for now so it shows score on completion,
         and redirects back to index.html*/
         endGame();
+        quiz.style.display = "none";
     }
 
     questionCounter ++;
