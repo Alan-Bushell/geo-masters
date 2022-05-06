@@ -1,16 +1,20 @@
 # Geo Masters
-## A Geography Quiz based Website
-### - Alan Bushell
 
 ![am I responsive screenshot](assets/images//)
 
+## A Geography Quiz based Website
+> Geo Masters is a knowledge based quiz game that centers around the theme of geography . The user is given an opportunity to play one of two games against a clock to  select the correct answer from 4 options and earn more points.
 
+>The user has the option to read the rules of the game to better understand the format and once they have decided which game they want to play they can then start the game.
+
+> The two available games are: Interesting Facts which is random but fun facts about random countries from all over the word. The second game is Flags. This game presents the user with obscure and interesting flags and the users goal is to figure out which country the flag belongs to.
+### - By Alan Bushell
 
 ## **[Live site](https://alan-bushell.github.io/geo-masters/)**
 
 ------------------------------------------------------------------
 
-## **[Repository](https://github.com/)**
+## **[Repository](https://github.com/Alan-Bushell/geo-masters)**
 ------------------------------------------------------------------
   
 ## Table of contents
@@ -31,14 +35,36 @@
 
 <a name="ux"></a>
 ### Pre-project Planning
->
+
+> For project 2 I decided early on I wanted to create a quiz game that I would like to play. I have a love of travelling and find Geography incredibly interesting so I decided on this as my theme.
+
+> Rather than just making a generic quiz site I wanted to add some extra elements that I felt would have given the typical quiz site a fun spin.
+
+>I decided I wanted to give the user a couple of options on which game they would like to play. I wanted to keep the overarching theme the same while giving clear differences to the types of questions that would be asked.
+
+> From here I decided on:
+
+ - Interesting Facts
+ - Flags
+
+> I also wanted to add a countdown timer to create urgency & a scoring system that was more relative to how quickly you answered the question rather than if you just got it correct or not.
 
 
 # UX design
 
-## Strategy Plane
+##### Color
+As my first project was a minimalistic black & white themed site I decided this project should have plenty of color.
+To start I decided on a nice vibrant linear gradient background ranging from a nice Pink(rgba(233, 30, 99, .8)) to Blue (rgba(33, 150, 243, .8))
 
-### To determine the best approach to this project I started with to determine the user needs.
+As this is a single page game the background is constant across the experience except for pop up modals which are the above Blue and the final score modal which covers the entirety of the screen in the same Blue.
+
+##### Font
+As the goal of the site was to provide users with clear instructions and questions, I decided I wanted a clear legible font that would not distort or delay the readability. The base font selected Courier New.
+
+##### Images
+The images on this site are used to convey logic to the users when they select the quiz type they might want to try or even the questions themselves. 
+**All the images selected for this project came from pixabay.com and pexels.com.**
+
 
 ## User Stories
 
@@ -49,17 +75,8 @@
 > As a user I want to be able to see the rules for the quiz before I start  
 > As a user I want to play again when I complete the quiz
 
-## Scope Plane
-> The website should have a clear path from initial load to quiz  
 
-## Structure Plane
- 
-
-**Index**
-
-
-
-## Skeleton Plane
+## Wireframes
 
 ### Home Page Desktop Wireframe
 ![Home Page Desktop Wireframe](assets/images//)
@@ -67,28 +84,49 @@
 ### Home Page mobile wireframe
 ![Home page mobile responsive Wireframe](assets/images//)
 
-> 
-
-## Surface Plane
-
-### Color
-> 
-
-
-
-### Typography - 
-
-
 
 ## Features
 
 <a name="features"></a>
 ### index.html
 
+Throughout the design process my initial approach was to have a landing page where the user would select their quiz type and be taken to the Quiz Dashboard.
+
+However because this project was going to include Javascript I felt like I could manipulate the DOM to create a single page quiz game app which is what I have done.
+
+By utilizing display properties effectively I was able to reduce the two / three page site down to one and create a seamless experience for my users.
+
+ 1. From page load the user will be presented with the welcome message, game choices and the rules modal button.
+ 2. Once they select a game the main page dashboard is hidden & the user is presented with a start game button and the rules again to go over.
+ 3. Once the user clicks start game button the quiz dashboard is then presented with questions, answers and a countdown clock.
+ 4. Once the final question has been answered, the end game modal will cover the screen and the quiz dashboard will be hidden. This endgame modal will display the users rank, their final score and show them the questions they were asked, the correct answer and their answer.
+
+#### Countdown Clock
+> The countdown clock was an essential part of my pre-project planning. I wanted to make dynamic and it actually plays a big part in my quiz.
+
+ - The countdown clock Starts when a question is presented to the user to display how long they have left to answer the question.
+ - If the user does not answer in time the clock will state "Times Up" to the user briefly before moving on to the next question.
+ - As the clock counts down it changes color.
+	 - From 15 seconds to 10 seconds it is a nice safe Green Color
+	 - From 10 seconds to 5 seconds it is a warning orange / amber color
+	 - From 5 seconds to 1 second it is a danger red color and includes a shaking motion to add urgency to the user
+	 - When it reaches 0 the clock then changes to "Times Up" and either pulls the next question or calls the end game function which brings up the end game modal.
+ - The clock also is part of the scoring system in the quiz games. If your answer is correct we check and see how much time you have left and it is factored into your score. 
+	 - If you have over 10 seconds left you score 100 points.
+	 - If you have between 6-10 seconds left you score 75 points.
+	 - If you have less than 10 seconds left you score 50 points.
+	 - If you answer incorrectly or if you run out of time then you score 0 points.
+
+#### End Game Function
+The end game function is called when there are either no questions left in the list or if the user reaches the max-question count. 
+Once this happens the endGame function calls and it displays a final score modal that presents users with their score, ranking and a little message depending on how they did.
+The user can also see a record of the questions, images, correct answer and their answer so they can learn and get feedback from their experience.
+
 
 <a name="left"></a>
 # Features Left to implement
 > Add a high score tracker for the user
+> Add a highscores modal for each seperate game
 > Be able to input username to push to a leaderboard
 
 ### Additional ideas
@@ -109,11 +147,7 @@
 > Used to make the site dynamic and to present, select and store the users answers and then provide a score based on the time it took them to answer.
 
 ### Font Awesome
-> Used for all the icons in this project
-
-### GoogleFonts
-> Used for all the fonts used in this project and to compare potential fonts.
-
+> Used for the home icon & the github icon used in this project.
 
 <a name="testing"></a>
 # Testing
@@ -152,7 +186,9 @@
 ## **Bugs**
 > Issues with clock not resetting when new question was pulled. Second instance of clock was called and it looped between the previous count and new count **fixed**
 > Issue with images not displaying correctly and forcing the page too wide on smaller displays. **fixed**
-
+> Issue with endgame function being called every 30 seconds and repeating user congratulations message **fixed**
+> Endgame modal overlapping and not allowing scroll on devices smaller than 400px. Play again button hidden and user cannot naviagte away. **fixed**
+> 
 
 <a name="deployment"></a>
 ## Deployment
