@@ -54,6 +54,15 @@ let questions = [
         question: "What country in the world is home to the most pyramids?"
     },
     {
+        answer: 2,
+        choice1: "Fish",
+        choice2: "Dogs",
+        choice3: "Cats",
+        choice4: "Birds",
+        image: "<img src='assets/images/tenerife.jpg'>",
+        question: "What animal are the Canary Islands named after?"
+    },
+    {
         answer: 3,
         choice1: "Myanmar",
         choice2: "Indonesia",
@@ -121,7 +130,7 @@ const CORRECT_BONUS_MED = 75;
 /*Correct Answer with less than 15 seconds left */
 const CORRECT_BONUS_MIN = 50;
 /* Max amount of questions user will be asked */
-const Max_Questions = 3;
+const Max_Questions = 4;
 
 const questionTracker = document.getElementById("question-tracker");
 
@@ -156,9 +165,10 @@ function getNewQuestion(){
         /* Adding alert for now so it shows score on completion,
         and redirects back to index.html*/
         endGame();
-        quiz.style.display = "none";
+        let timeLeft = 30;
         clearInterval(counter);
-    }
+        quiz.style.display = "none";
+    } else {
 
     questionCounter ++;
     /*Display current question and remaining questions to user*/
@@ -169,8 +179,9 @@ function getNewQuestion(){
     currentQuestion = availableQuestions[questionIndex];
 
     /*Update the inner text to the Question section*/
+    if(question){
     question.innerText = currentQuestion.question;
-
+    }
     /* Get the choice options available within the question and display them*/
     choices.forEach((choice) =>{
         /* Set number as the dataset number on the choices in the HTML*/
@@ -183,6 +194,7 @@ function getNewQuestion(){
     image.classList.add("quiz-image>img");
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
+}
 }
 
 choices.forEach(choice =>{
@@ -232,7 +244,7 @@ choices.forEach(choice =>{
         //console.log clock
         let timeLeft = clock.innerText;
         updateScore(timeLeft);
-        clearInterval(counter)
+        clearInterval(counter);
         getNewQuestion();
         clock.classList.remove("vertical-shake");
         startTimer(30)
@@ -334,41 +346,21 @@ window.onclick = function(event) {
     }
   };
 
-/*
-function endGame(){
-    // When final question has been answered, push score and rank to modal!
-    if(score >=250){
-        alert(`The game has finished. You scored ${score} points.
-        You have achieved the rank of: Chistopher Columbus.`)
-    } else if( score >= 150 && score < 250){
-        alert(`The game has finished. You scored ${score} points.
-        You have achieved the rank of: Francis Drake.`)
-    } else {
-        alert(`It might be a good idea to brush up on your Geography.
-        You only scored ${score} points.
-        Unfortunately your no Christopher Columbus.
-        Your Chris Pratt :D`)
-    }
-};
-*/
+
 function endGame(){
 
     finalScore.style.display = "block";
     if(score >= 250){
-        finalContent.innerHTML += (`<h3 class="end-rank">Congratulations!
+        finalContent.innerHTML += (`<h5 class="end-rank">Congratulations!
     Your final score is ${score}!
-    <br>Your rank is: Christopher Columbus.
-    <br>Play again or try one of our other games.</h3>`)
+    <br>Your rank is: Christopher Columbus.</h5`)
     } else if(score >=150 && score < 250){
-        finalContent.innerHTML += (`<h3 class="end-rank">Well Done!
+        finalContent.innerHTML += (`<h5 class="end-rank">Well Done!
     Your final score is ${score}!
-    <br>Your Rank is: Francis Drake. You get around but just not enough :D
-    <br>Play again or try our other game.</h3>`)
+    <br>Your Rank is: Francis Drake. </h5`)
     } else{
-        finalContent.innerHTML += (`<h3 class="end-rank">Unlucky<br>
+        finalContent.innerHTML += (`<h5 class="end-rank">Unlucky<br>
     Your final score is ${score}!
-    <br>Your Rank is: Domestic Traveller. You get around but just not enough :D
-    <br>Play again or try our other game.</h3>`)
+    <br>Your Rank is: Domestic Traveller.</h5>`)
     }
-    clearInterval(counter);
 };
