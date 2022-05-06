@@ -195,7 +195,7 @@ function getNewQuestion(){
   }
 }
 
-choices.forEach(choice =>{
+choices.forEach((choice) =>{
     /* For each choice, add event listener notated as 'e'.*/
     choice.addEventListener("click", e =>{
         if (!acceptingAnswers) return;
