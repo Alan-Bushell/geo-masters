@@ -141,7 +141,7 @@ function startGameFlag(){
     displayQuiz();
     questionCounter = 0;
     score = 0;
-    startTimer(30);
+    startTimer(15);
     availableQuestions = [...flagQuestions];
     getNewQuestion();
 }
@@ -152,7 +152,7 @@ function startGame(){
     displayQuiz();
     questionCounter = 0;
     score = 0;
-    startTimer(30);
+    startTimer(15);
     availableQuestions = [...questions];
     getNewQuestion();
 }
@@ -165,8 +165,6 @@ function getNewQuestion(){
         /* Adding alert for now so it shows score on completion,
         and redirects back to index.html*/
         endGame();
-        let timeLeft = 30;
-        clearInterval(counter);
         quiz.style.display = "none";
     } else {
 
@@ -194,8 +192,8 @@ function getNewQuestion(){
     image.classList.add("quiz-image>img");
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
-}
-}
+  }
+};
 
 choices.forEach(choice =>{
     /* For each choice, add event listener notated as 'e'.*/
@@ -229,7 +227,7 @@ choices.forEach(choice =>{
         ${currentQuestion.image}<br>
         <em>Correct Answer:</em> ${currentQuestion.choice3}
         | <em>Your Answer:</em> ${selectedChoice.innerText}</p>`;
-    } else {
+    } else if(currentQuestion.answer == 4) {
         finalAnswers.innerHTML +=
         `<p  class="final-score-answers"><em>Question:</em>
         ${currentQuestion.question}<br>
@@ -247,21 +245,21 @@ choices.forEach(choice =>{
         clearInterval(counter);
         getNewQuestion();
         clock.classList.remove("vertical-shake");
-        startTimer(30)
+        startTimer(15)
     } else{
         clearInterval(counter)
         getNewQuestion();
         clock.classList.remove("vertical-shake");
-        startTimer(30);
+        startTimer(15);
     };
   });
 });
 
 /* Will update score*/
 function updateScore(timeLeft){
-    if(timeLeft >= 15){
+    if(timeLeft >= 10){
         score += CORRECT_MAX;
-    } else if(timeLeft >=5 && timeLeft <15){
+    } else if(timeLeft >=5 && timeLeft <10){
         score += CORRECT_BONUS_MED;
     } else if(timeLeft >0 && timeLeft <5){
         score += CORRECT_BONUS_MIN;
@@ -281,9 +279,9 @@ function startTimer(time){
     function timer(){
         clock.textContent = time;
         time--; //decrement the time value
-        if(time <= 30 && time >= 15){
+        if(time <= 15 && time >= 10){
             clock.style.color = "limegreen";
-        } else if(time >= 5 && time <= 15){
+        } else if(time >= 5 && time <= 10){
             clock.style.color = "orange";
         } else if (time >=1 && time < 5){
             clock.style.color = "red";
@@ -294,7 +292,7 @@ function startTimer(time){
             clock.classList.remove("vertical-shake");
             clearInterval(counter);
             getNewQuestion();
-            startTimer(30);
+            startTimer(15);
         };
     };
 };
@@ -351,15 +349,15 @@ function endGame(){
 
     finalScore.style.display = "block";
     if(score >= 250){
-        finalContent.innerHTML += (`<h5 class="end-rank">Congratulations!
+        finalContent.innerHTML = (`<h5 class="end-rank">Congratulations!
     Your final score is ${score}!
     <br>Your rank is: Christopher Columbus.</h5`)
     } else if(score >=150 && score < 250){
-        finalContent.innerHTML += (`<h5 class="end-rank">Well Done!
+        finalContent.innerHTML = (`<h5 class="end-rank">Well Done!
     Your final score is ${score}!
     <br>Your Rank is: Francis Drake. </h5`)
     } else{
-        finalContent.innerHTML += (`<h5 class="end-rank">Unlucky<br>
+        finalContent.innerHTML = (`<h5 class="end-rank">Unlucky<br>
     Your final score is ${score}!
     <br>Your Rank is: Domestic Traveller.</h5>`)
     }
