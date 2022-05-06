@@ -181,7 +181,7 @@ function getNewQuestion(){
     question.innerText = currentQuestion.question;
     }
     /* Get the choice options available within the question and display them*/
-    choices.forEach((choice) =>{
+    choices.forEach(choice =>{
         /* Set number as the dataset number on the choices in the HTML*/
         const number = choice.dataset.number;
         /* Set the inner html for the current questions choice*/
@@ -351,11 +351,11 @@ function endGame(){
     if(score >= 250){
         finalContent.innerHTML = (`<h5 class="end-rank">Congratulations!
     Your final score is ${score}!
-    <br>Your rank is: Christopher Columbus.</h5`)
+    <br>Your rank is: Christopher Columbus.</h5>`)
     } else if(score >=150 && score < 250){
         finalContent.innerHTML = (`<h5 class="end-rank">Well Done!
     Your final score is ${score}!
-    <br>Your Rank is: Francis Drake. </h5`)
+    <br>Your Rank is: Francis Drake.</h5`)
     } else{
         finalContent.innerHTML = (`<h5 class="end-rank">Unlucky<br>
     Your final score is ${score}!
