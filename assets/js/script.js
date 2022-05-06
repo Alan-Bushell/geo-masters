@@ -193,7 +193,7 @@ function getNewQuestion(){
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
   }
-};
+}
 
 choices.forEach(choice =>{
     /* For each choice, add event listener notated as 'e'.*/
