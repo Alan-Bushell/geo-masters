@@ -205,7 +205,7 @@ choices.forEach((choice) =>{
     const selectedChoice = e.target;
     /* Getting the number associated with the data-number,
      to return the choice of the user*/
-    const selectedAnswer = selectedChoice.dataset["number"];
+    const selectedAnswer = selectedChoice.dataset.number;
     if(currentQuestion.answer == 1){
         finalAnswers.innerHTML +=
         `<p class="final-score-answers"><em>Question:</em>
@@ -245,13 +245,13 @@ choices.forEach((choice) =>{
         clearInterval(counter);
         getNewQuestion();
         clock.classList.remove("vertical-shake");
-        startTimer(15)
+        startTimer(15);
     } else{
-        clearInterval(counter)
+        clearInterval(counter);
         getNewQuestion();
         clock.classList.remove("vertical-shake");
         startTimer(15);
-    };
+    }
   });
 });
 
@@ -264,10 +264,10 @@ function updateScore(timeLeft){
     } else if(timeLeft >0 && timeLeft <5){
         score += CORRECT_BONUS_MIN;
     } else{
-        score += 0
-    };
+        score += 0;
+    }
     // score += CORRECT_BONUS;
-};
+}
 
 
 /**
@@ -293,15 +293,15 @@ function startTimer(time){
             clearInterval(counter);
             getNewQuestion();
             startTimer(15);
-        };
-    };
-};
+        }
+    }
+}
 
 function hideQuiz(){
     quiz.style.display = "none";
     home.style.display = "block";
     location.reload();
-};
+}
 
 function showQuiz(){
     home.style.display = "none";
@@ -309,29 +309,29 @@ function showQuiz(){
     startMsg.style.marginTop ="300px";
     startBtn.style.display = "inline";
     startFlagBtn.style.display = "none";
-};
+}
 
 function showFlagQuiz(){
     home.style.display = "none";
     startMsg.style.display = "block";
     startMsg.style.marginTop ="300px";
     startBtn.style.display = "none";
-    startFlagBtn.style.display = "inline"
-};
+    startFlagBtn.style.display = "inline";
+}
 
 function displayQuiz(){
     quiz.style.display = "block";
-};
+}
 
 //Dispay Rules Modal onClick of the rules button
 function rulesModal(){
     rules.style.display = "block";
     rulesContent.style.display = "block";
-};
+}
 
 function closeRules(){
     rules.style.display = "none";
-};
+}
 
 function closeEndgame(){
     finalScore.style.display = "none";
@@ -351,14 +351,14 @@ function endGame(){
     if(score >= 250){
         finalContent.innerHTML = (`<h5 class="end-rank">Congratulations!
     Your final score is ${score}!
-    <br>Your rank is: Christopher Columbus.</h5>`)
+    <br>Your rank is: Christopher Columbus.</h5>`);
     } else if(score >=150 && score < 250){
         finalContent.innerHTML = (`<h5 class="end-rank">Well Done!
     Your final score is ${score}!
-    <br>Your Rank is: Francis Drake.</h5`)
+    <br>Your Rank is: Francis Drake.</h5`);
     } else{
         finalContent.innerHTML = (`<h5 class="end-rank">Unlucky<br>
     Your final score is ${score}!
-    <br>Your Rank is: Domestic Traveller.</h5>`)
+    <br>Your Rank is: Domestic Traveller.</h5>`);
     }
-};
+}
