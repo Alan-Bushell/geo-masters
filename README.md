@@ -170,15 +170,28 @@ The user can also see a record of the questions, images, correct answer and thei
 
 ### Testing Phase
 
+#### Manual Testing
 
-
-**Testing for responsiveness**
-
+| Test | Result |
+|--|--|
+|When flags game is selected correct game runs| Pass |
+|When random facts game is selected correct game runs|Pass|
+|When the rules button is clicked the modal pops up|Pass|
+|The rules modal closes when user clicks the close button|Pass|
+|The rules modal closes when the user clicks outside of the modal|Pass|
+|When game starts question, answers and images load correctly|Pass|
+|When game starts clock begins countdown|Pass|
+|When user selects answer, new question and answers are pulled|Pass|
+|When new question is called the clock restarts|Pass|
+|The correct answers appear with the correct questions|Pass|
+|The correct image appears for the correct question|Pass|
+|When the user answers a question the counter increases|Pass|
+|When the user answers the final question the game directs to the end game modal|Pass|
+|The end game modal displays the users final score & rank|Pass|
+|The end game modal displays the questions and answers the user provided and correct answer|Pass|
+|When the user clicks Play Again the page reloads back to the start|Pass|
 
 ### User testing
-
-**User testing Challenge**
-
 
 **User responsive testing**
 
