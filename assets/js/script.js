@@ -32,7 +32,7 @@ let questions = [
         choice2: "Jordon",
         choice3: "Oman",
         choice4: "Egypt",
-        image: "<img src='assets/images/petra.jpg'>",
+        image: "<img src='assets/images/quiz/petra.jpg'>",
         question: "What country is the home of Petra?"
     },
     {
@@ -41,7 +41,7 @@ let questions = [
         choice2: "UK",
         choice3: "Serbia",
         choice4: "China",
-        image: "<img src='assets/images/firework.jpg'>",
+        image: "<img src='assets/images/quiz/firework.jpg'>",
         question: "What country originally produced gunpowder?"
     },
     {
@@ -50,7 +50,7 @@ let questions = [
         choice2: "Mexico",
         choice3: "Sudan",
         choice4: "Morroco",
-        image: "<img src='assets/images/pyramids.jpg'>",
+        image: "<img src='assets/images/quiz/pyramids.jpg'>",
         question: "What country in the world is home to the most pyramids?"
     },
     {
@@ -59,7 +59,7 @@ let questions = [
         choice2: "Dogs",
         choice3: "Cats",
         choice4: "Birds",
-        image: "<img src='assets/images/tenerife.jpg'>",
+        image: "<img src='assets/images/quiz/tenerife.jpg'>",
         question: "What animal are the Canary Islands named after?"
     },
     {
@@ -68,7 +68,7 @@ let questions = [
         choice2: "Indonesia",
         choice3: "Thailand",
         choice4: "Laos",
-        image: "<img src='assets/images/templeofdawn.jpg'>",
+        image: "<img src='assets/images/quiz/templeofdawn.jpg'>",
         question: "In which country would you find the temple of dawn?"
     }
 ];
@@ -81,7 +81,7 @@ let flagQuestions = [
         choice2: "Taiwan",
         choice3: "Indonesia",
         choice4: "Nepal",
-        image: "<img src='assets/images/nepal.png'>",
+        image: "<img src='assets/images/quiz/nepal.png'>",
         question: "What country does this flag belong to?"
     },
     {
@@ -90,7 +90,7 @@ let flagQuestions = [
         choice2: "Mozambique",
         choice3: "Kenya",
         choice4: "Sierra Leonne",
-        image: "<img src='assets/images/mozambique.png'>",
+        image: "<img src='assets/images/quiz/mozambique.png'>",
         question: "What country does this flag belong to?"
     },
     {
@@ -99,7 +99,7 @@ let flagQuestions = [
         choice2: "Singapore",
         choice3: "Hong Kong",
         choice4: "Taiwan",
-        image: "<img src='assets/images/bhutan.png'>",
+        image: "<img src='assets/images/quiz/bhutan.png'>",
         question: "What country does this flag belong to?"
     },
     {
@@ -108,7 +108,7 @@ let flagQuestions = [
         choice2: "Iran",
         choice3: "Turkmenistan",
         choice4: "Kurdistan",
-        image: "<img src='assets/images/kurdistan.png'>",
+        image: "<img src='assets/images/quiz/kurdistan.png'>",
         question: "Which country or region does this flag belong to?"
     },
     {
@@ -117,7 +117,7 @@ let flagQuestions = [
         choice2: "Haiti",
         choice3: "Dominica",
         choice4: "Panama",
-        image: "<img src='assets/images/dominica.png'>",
+        image: "<img src='assets/images/quiz/dominica.png'>",
         question: "What country does this flag belong to?"
     }
 ];
