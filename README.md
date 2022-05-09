@@ -1,6 +1,6 @@
 # Geo Masters
 
-![am I responsive screenshot](assets/images//)
+![am I responsive screenshot](assets/images/readme/geo-masters-responsive.png)
 
 ## A Geography Quiz based Website
 > Geo Masters is a knowledge based quiz game that centers around the theme of geography . The user is given an opportunity to play one of two games against a clock to  select the correct answer from 4 options and earn more points.
@@ -78,17 +78,24 @@ The images on this site are used to convey logic to the users when they select t
 
 ## Wireframes
 
-### Home Page Desktop Wireframe
-![Home Page Desktop Wireframe](assets/images//)
+### Desktop & Mobile Wireframe
+![Wireframe](assets/images/readme/geo-masters-wireframes.png)
 
-### Home Page mobile wireframe
-![Home page mobile responsive Wireframe](assets/images//)
 
 
 ## Features
 
 <a name="features"></a>
 ### index.html
+
+#### Welcome Area
+![Welcome Message](assets/images/readme/geo-masters-welcome-area.png)
+
+#### Game Category Area
+![Game Category](assets/images/readme/geo-masters-game-selection.png)
+
+#### Rules Modal
+![Rules Modal](assets/images/readme/geo-masters-rules-modal.png)
 
 Throughout the design process my initial approach was to have a landing page where the user would select their quiz type and be taken to the Quiz Dashboard.
 
@@ -100,6 +107,12 @@ By utilizing display properties effectively I was able to reduce the two / three
  2. Once they select a game the main page dashboard is hidden & the user is presented with a start game button and the rules again to go over.
  3. Once the user clicks start game button the quiz dashboard is then presented with questions, answers and a countdown clock.
  4. Once the final question has been answered, the end game modal will cover the screen and the quiz dashboard will be hidden. This endgame modal will display the users rank, their final score and show them the questions they were asked, the correct answer and their answer.
+
+#### Pregame lobby
+![Pre-Game Lobby](assets/images/readme/geo-masters-pregame-lobby.png)
+
+#### Quiz Dashboard
+![Quiz Dashboard](assets/images/readme/geo-masters-quiz-dashboard.png)
 
 #### Countdown Clock
 > The countdown clock was an essential part of my pre-project planning. I wanted to make dynamic and it actually plays a big part in my quiz.
@@ -118,6 +131,8 @@ By utilizing display properties effectively I was able to reduce the two / three
 	 - If you answer incorrectly or if you run out of time then you score 0 points.
 
 #### End Game Function
+
+![End Game Modal](assets/images/readme/geo-masters-final-score.png)
 The end game function is called when there are either no questions left in the list or if the user reaches the max-question count. 
 Once this happens the endGame function calls and it displays a final score modal that presents users with their score, ranking and a little message depending on how they did.
 The user can also see a record of the questions, images, correct answer and their answer so they can learn and get feedback from their experience.
@@ -169,18 +184,25 @@ The user can also see a record of the questions, images, correct answer and thei
 
 ## Google Lighthouse Testing
 
+### Desktop
+![Lighthouse testing index.html](assets/images/readme/geo-masters-desktop-lighthouse.png)
+
+### Mobile
+![Lighthouse testing index.html](assets/images/readme/geo-masters-mobile-lighthouse.png)
+
+## HTML W3 Validation
+
 ### index.html
+![W3 Validation index.html](assets/images/readme/geo-masters-w3-validator.png)
+#### Result: No Errors
 
+### CSS Validation
+![W3 Validation index.html](assets/images/readme/geo-masters-css-validator.png)
+#### Result: No Errors
 
-## HTML Validation
-
-### index.html
-
-#### Result: 
-
-
-## CSS Validation
-
+### JS Hint Checker
+![JS hint Validator](assets/images/readme/geo-masters-jshint.png)
+#### Result: No Warnings
 
 <a name="bugs"></a>
 ## **Bugs**
@@ -188,7 +210,6 @@ The user can also see a record of the questions, images, correct answer and thei
 > Issue with images not displaying correctly and forcing the page too wide on smaller displays. **fixed**
 > Issue with endgame function being called every 30 seconds and repeating user congratulations message **fixed**
 > Endgame modal overlapping and not allowing scroll on devices smaller than 400px. Play again button hidden and user cannot naviagte away. **fixed**
-> 
 
 <a name="deployment"></a>
 ## Deployment
