@@ -29,7 +29,7 @@ let questions = [
     {
         answer: 2,
         choice1: "Saudi Arabia",
-        choice2: "Jordon",
+        choice2: "Jordan",
         choice3: "Oman",
         choice4: "Egypt",
         image: "<img src='assets/images/quiz/petra.jpg'>",
