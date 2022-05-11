@@ -194,7 +194,7 @@ function getNewQuestion(){
     acceptingAnswers = true;
   }
 }
-
+// The below concept learned through tutorial from James Quick on YT
 choices.forEach((choice) =>{
     /* For each choice, add event listener notated as 'e'.*/
     choice.addEventListener("click", e =>{
@@ -344,7 +344,7 @@ window.onclick = function(event) {
     }
   };
 
-
+// Function called when final question has been answered
 function endGame(){
 
     finalScore.style.display = "block";
