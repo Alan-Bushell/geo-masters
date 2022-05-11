@@ -193,7 +193,21 @@ The user can also see a record of the questions, images, correct answer and thei
 
 ### User testing
 
-**User responsive testing**
+#### Peer Code Review
+> Project submitted for peer code review on Code Institute among other students.
+
+> Only noticable issue reported was a typo on one of the answers in the Quiz
+
+#### User tests
+
+> 3 users were asked to attempt the following and their scores were averaged to give the below scores
+ 
+|Test|Result  |
+|--|--|
+|Read the rules to understand the game|100%|
+| Navigate to the Flags Quiz and complete the game |100%  |
+|Navigate to the Random Facts Quiz and complete the game|100%|
+|Provide your rank and score to me after completing quiz|100%|
 
 ## Google Lighthouse Testing
 
@@ -240,9 +254,8 @@ The user can also see a record of the questions, images, correct answer and thei
 <a name="credits"></a>
 ## Credits
 
-### Links for images included below
-> world-map.jpg : ('https://www.pexels.com/photo/world-map-illustration-592753/') Photo by Aaditya Arora
-
+### James Quick - Youtube
+> Interesting tutortial about creating a quiz. Interesting concept on pulling questions and answers to quiz from JS.
 
 <a name="content"></a>
 ## Content & Resources
@@ -256,11 +269,15 @@ The user can also see a record of the questions, images, correct answer and thei
 ### w3 schools
 > Used for general lookup JS dom related queries and general styling css using js
 
+> Also used for trying to clearInterval on countdown clock to make it reset.
+
 ### Stack Overflow
 > Used to query issues relating programming issues relating to injecting html with JS
 
 ### Youtube.com
 > Channels like **Florin Pop** & **Brad Traversy** helped understand different JS concepts throughout this project
+
+> Also helped understand manipulating the DOM more effetively
 
 ### Code Institute
 > Project created in line with course content and within project 2 scope.
