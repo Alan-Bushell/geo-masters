@@ -78,6 +78,7 @@ a{
 .btn-rules{
     font-size: 18px;
     background: rgba(233, 30, 99, 1);
+    border: solid white 2px;
     color: white;
     font-weight: 500;
     border-radius: 5px;
@@ -88,6 +89,7 @@ a{
 .btn-rules:hover,.btn-close-rules:hover{
     background-color: white;
     color: rgba(233, 30, 99, 1);
+    border: solid 2px rgba(233, 30, 99, 1);
     cursor: pointer;
 }
 
