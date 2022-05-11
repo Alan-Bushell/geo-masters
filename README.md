@@ -254,7 +254,7 @@ The user can also see a record of the questions, images, correct answer and thei
 <a name="credits"></a>
 ## Credits
 
-### James Quick - Youtube
+### [James Quick](https://www.youtube.com/watch?v=zZdQGs62cR8&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx&index=4) - Youtube
 > Interesting tutortial about creating a quiz. Interesting concept on pulling questions and answers to quiz from JS.
 
 <a name="content"></a>
